@@ -70,11 +70,11 @@ section{
     padding: 10rem 9%;
 }
 .home{
-    display: flex;
+     display: flex;
     padding: 0 9%;
     align-items: center;
-    background: url('/images/home.home') no-repeat;
-    background-position:center;
+    background: url('../images/homee.png') no-repeat;
+    background-position : right;
 }
 .home-content{
     max-width: 60rem;
@@ -201,4 +201,20 @@ transition:.5s;
 .home-sci a:hover::before{
 width:100%;
 
+}                                               /* check point-3*/
+.home-imgHover {
+    position: absolute;
+    top:0;
+    right:0;
+    width: 45%;
+    height: 100%;
+    background: transparent;
+    
+    transition:3s;
+    
+}
+.home-imgHover:hover{
+    background:var(--bg-color);
+    opacity:0.8;
+    transition:3s;
 }
