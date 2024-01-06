@@ -11,8 +11,8 @@
     font-family: 'Poppins', sans-serif;
 }
 :root{
-    --bg-color:#081b29;
---second-bg-color:#112e42;
+    --bg-color:#081B29;
+--second-bg-color:#3d5c70;
 --text-color:#ededed;
 --main-color:#00abf0;
 }
@@ -70,7 +70,7 @@ section{
     padding: 10rem 9%;
 }
 .home{
-     display: flex;
+    display: flex;
     padding: 0 9%;
     align-items: center;
     background: url('../images/homee.png') no-repeat;
@@ -196,12 +196,13 @@ transition:.5s;
     height: 100%;
     background: var(--main-color);
     z-index:-1;
-    transition:.5s;                                                                                                    /*check-point 2*/
+    transition:.5s;                         
 }
 .home-sci a:hover::before{
 width:100%;
 
-}                                               /* check point-3*/
+}
+                                         /*check-point 2*/
 .home-imgHover {
     position: absolute;
     top:0;
@@ -218,3 +219,4 @@ width:100%;
     opacity:0.8;
     transition:3s;
 }
+                                    /*check-point 3*/
