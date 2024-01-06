@@ -73,7 +73,7 @@ section{
     display: flex;
     padding: 0 9%;
     align-items: center;
-    background: url('images/homee.png') no-repeat;
+    background: url('../images/homee.png') no-repeat;
     background-position : right;
 }
 .home-content{
