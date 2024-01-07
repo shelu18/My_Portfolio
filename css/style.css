@@ -324,3 +324,91 @@ color: var(--main-color);
     color:var(--main-color);
     padding-bottom: .5rem;                    /*check-point 6*/
 } 
+.projects {
+    background-color: var(--second-bg-color);
+    padding: 10rem 9%;
+  }
+  
+  .projects .container {
+    max-width: 120rem;
+    margin: 0 auto;
+  }
+  
+  .projects .heading {
+    font-size: 5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  
+  .projects .project-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .projects .project-card {
+    position: relative;
+    width: calc(50% - 1rem);
+    margin-bottom: 2rem;
+    padding: 3rem;
+    background-color: var(--bg-color);
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .projects .project-card:hover {
+    transform: translateY(-0.5rem);
+  }
+  
+  .projects .project-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+  }
+  
+  .projects .project-card h3 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    color: var(--main-color);
+  }
+  
+  .projects .project-card p {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+  }
+  
+  .projects .project-card .btn {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    padding: 1rem 2rem;
+    background-color: var(--main-color);
+    color: var(--bg-color);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
+  }
+  
+  .projects .project-card .btn:hover {
+    background-color: var(--text-color);
+    color: var(--main-color);
+  }
+  
+  @media screen and (max-width: 768px) {
+    .projects .container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .projects .project-card {
+      width: 100%;
+    }
+  }               /*check-point 7*/
