@@ -61,6 +61,12 @@ body{
 navbar.active{
     color: var(--main-color);
 }
+/* Add this to your CSS file */
+
+a.active {
+    color: var(--main-color); /* Change this to the color you want for the active link */
+    font-weight: bold;        /* Makes the active link bold */
+}
 #menu-icon{
     font-size: 3.5rem;
     color: var(--text-color);
@@ -654,7 +660,7 @@ width: 70%;
     justify-content:space-between;
     align-items:center;
     flex-wrap:wrap;
-    padding: 2rem 9%;
+    padding: .5rem .2%;
     background: var(--second-bg-color);
 }
 .footer-text p {
@@ -665,10 +671,10 @@ position:relative;
 display: inline-flex;
 justify-content: center;
 align-items: center;
-padding: .8rem;
+padding: .02rem;
 background: var(--main-color);
 border: .2rem solid var(--bg-color);
-border-radius: .6rem;
+border-radius: .8rem;
 z-index: 1;
 overflow: hidden;
  }
