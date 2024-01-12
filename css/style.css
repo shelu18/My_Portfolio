@@ -64,7 +64,7 @@ navbar.active{
 /* Add this to your CSS file */
 
 a.active {
-    color: pink; /* Change this to the color you want for the active link */
+    color: var(--main-color); /* Change this to the color you want for the active link */
     font-weight: bold;        /* Makes the active link bold */
 }
 #menu-icon{
