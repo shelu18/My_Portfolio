@@ -102,10 +102,26 @@ section{
     width: 32.8rem;
 }
 .home-content .text-animate h3 {
-    font-size:3.2rem;
+    font-size: 3.2rem;
     font-weight: 700;
-    color:transparent;
+    color: transparent;
 -webkit-text-stroke: .7px var(--main-color);
+background-image: linear-gradient( var(--main-color), var(--main-color));  /*added gradient*/
+background-repeat: no-repeat;
+-webkit-background-clip: text;
+background-position: 0 0;
+animation: homeBgText 8s linear infinite;
+}
+.home-content .text-animate h3::before {
+    content:'';
+    position: absolute;
+    top:0;
+    left:0;
+    width:0;
+    height: 100%;
+    border-right: 2px solid var(--main-color);
+    z-index: -1;
+    
 }
 .home-content p{
     font-size: 1.6rem;
@@ -267,7 +283,7 @@ color: var(--main-color);
     border-radius:50%;
   border: .3rem solid var(--main-color);     /*check-point 4*/
 }
-.about-img .circle-spin{
+.about-img .circle-spin {
     position:absolute;
     top: 50%;
     left:50%;
@@ -279,6 +295,7 @@ color: var(--main-color);
     border-bottom: .6rem solid var(--second-bg-color);
     border-left: .3rem solid var(--main-color);
     border-right: .3rem solid var(--main-color);
+    animation: aboutSpinner 8s linear infinite;
 }
 .about-content{
     text-align: center;  
@@ -852,3 +869,24 @@ text-align: center;
         font-size: 5rem;
     }
 }
+
+/*keyframes animation*/
+@keyframes homeBgText{
+    0%,
+    10%,
+    100% {
+        background-position: -100rem 0;
+    }
+    65%,
+    85% {
+        background-position: 0 0;
+    }
+}
+@keyframes aboutSpinner{
+   
+    100% {
+        transform:translate(-50%,-50%) rotate(360deg);
+    }
+
+    }
+
