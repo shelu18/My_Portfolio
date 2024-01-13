@@ -307,6 +307,102 @@ color: var(--main-color);
     font-size: 1.8rem;
     margin: 2rem 0 2rem;
 }
+                     /*read more css*/
+                     .about-me-page {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        min-height: 100vh;
+                        background-color: var(--bg-color);
+                      }
+                      
+                      .image-container {
+                        position: relative;
+                        width: 25rem;
+                        height: 25rem;
+                        margin-bottom: 3rem;
+                      }
+                      
+                      .image-container img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 50%;
+                        border: 0.3rem solid var(--main-color);
+                      }
+                      
+                      .circle-spin {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%) rotate(0);
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        border-top: 0.6rem solid var(--second-bg-color);
+                        border-bottom: 0.6rem solid var(--second-bg-color);
+                        border-left: 0.3rem solid var(--main-color);
+                        border-right: 0.3rem solid var(--main-color);
+                        animation: aboutSpinner 4s linear infinite;
+                      }
+                      
+                      @keyframes aboutSpinner {
+                        0% {
+                          transform: translate(-50%, -50%) rotate(0);
+                        }
+                        100% {
+                          transform: translate(-50%, -50%) rotate(360deg);
+                        }
+                      }
+                      
+                      p {
+                        max-width: 60rem;
+                        text-align: justify;
+                        font-size: 1.8rem;
+                        line-height: 2.5rem;
+                        margin: 0 3rem;
+                        padding: 3rem;
+                        background-color: var(--second-bg-color);
+                        border-radius: 1rem;
+                      }
+                      
+                        
+                      
+                        .circle-spin {
+                          border-top: 0.4rem solid  violet;
+                          border-bottom: 0.3rem solid  violet;
+                          border-left: 0.3rem solid var(--main-color);
+                          border-right: 0.3rem solid var(--main-color);
+                        }
+                      
+                        p {
+                          max-width: 70%;
+                          margin: 0 1.5rem;
+                          padding: 2rem;
+                          font-size: 1.6rem;
+                          text-align:center;
+                          line-height:3rem;
+                        }
+                      
+                        @media only screen and (max-width: 400px) {
+                            p {
+                              margin: 0 0 0 0;
+                              padding: 2rem;
+                              text-align: justify;
+                              font-size: 1.6rem;
+                              line-height: 2.2rem;
+                            }
+                          
+                            .about-me-page {
+                              align-items: flex-start;
+                            }
+                          }
+                 
+        
+                   
+                   
+
 .btn-box.btns {
     display: inline-block;
     width: 15rem;
