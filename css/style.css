@@ -356,7 +356,7 @@ color: var(--main-color);
                         }
                       }
                       
-                    .circle-spin  p {
+                    .mee {
                         max-width: 60rem;
                         text-align: justify;
                         font-size: 1.8rem;
@@ -371,18 +371,22 @@ color: var(--main-color);
                       
                         .circle-spin {
                           border-top: 0.4rem solid  violet;
-                          border-bottom: 0.3rem solid  violet;
+                          border-bottom: 0.4rem solid  violet;
                           border-left: 0.3rem solid var(--main-color);
                           border-right: 0.3rem solid var(--main-color);
                         }
                       
-                        .circle-spin p {
+                        .mee {
                           max-width: 70%;
                           margin: 0 1.5rem;
                           padding: 2rem;
                           font-size: 1.6rem;
                           text-align:center;
                           line-height:3rem;
+                          border-top: 0.3rem solid  violet;
+                          border-bottom: 0.3rem solid  violet;
+                          border-left: 0.3rem solid var(--main-color);
+                          border-right: 0.3rem solid var(--main-color);
                         }
                       
                         @media only screen and (max-width: 400px) {
