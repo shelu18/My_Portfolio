@@ -58,7 +58,7 @@ body{
     color: var(--main-color);
 }
 .navbar a:hover,
-navbar.active{
+.navbar.active{
     color: var(--main-color);
 }
 /* Add this to your CSS file */
@@ -110,7 +110,7 @@ background-image: linear-gradient( var(--main-color), var(--main-color));  /*add
 background-repeat: no-repeat;
 -webkit-background-clip: text;
 background-position: 0 0;
-animation: homeBgText 8s linear infinite;
+animation: homeBgText 6s linear infinite;
 }
 .home-content .text-animate h3::before {
     content:'';
