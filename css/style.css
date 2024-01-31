@@ -722,11 +722,11 @@ width: 70%;
 .input-box .input-field {
    width:48%;
 }
-.field .item{ 
+.field .item { 
     width: 100%;
-    padding:18px;
+    padding:1rem 1.5rem;
     background:transparent;
-    border: 2px solid var(--text-color);
+    border: 3px solid var(--text-color);
     outline:none;
     border-radius:6px;
     margin-bottom: 1.5rem;
@@ -773,25 +773,32 @@ form button {
 
 }
 
-
-/* Small devices (600px and up) */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
     .contact form {
         width: 90%;
+        font-size: .9rem;
+        
+    }
+    field.item {
+        width: 90%;
+        border: 2px solid var(--text-color);
+        padding: 1rem 
+        
     }
 }
-
-/* Medium devices (768px and up) */
-/* @media only screen and (min-width: 768px) {
+ @media only screen and (min-width:300px) {
     .contact form {
-        width: 50%;
+        width: 70%;
+        font-size: .7rem;
+        padding: .6rem 1rem;
     }
-} */
-
-
-
-
-
+    field.item {
+        width: 60%;
+        border: 2px solid var(--text-color);
+        padding: 1rem 
+        
+    }
+} 
 
 
 
