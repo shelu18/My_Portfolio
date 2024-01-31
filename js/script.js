@@ -113,7 +113,8 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     checkInputs();
     if(!fullName.classList.contains("error") && !email.classList.contains("error") && !phone.classList.contains("error") && !subject.classList.contains("error") && !mess.classList.contains("error")) {
-        console.log("success");
-       sendEmail();   
+        sendEmail(); 
+        form.reset();
+        return false; 
     }  
 });
