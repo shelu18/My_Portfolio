@@ -22,7 +22,7 @@ Here are some of the technologies I've worked with:
 
 ## Contact Me
 
-Feel free to reach out to me at [Your Email]. You can also connect with me on [LinkedIn](https://www.linkedin.com/in/shailendra-parihar-3122b4220).
+Feel free to reach out to me at [shailendraparihar3630@gmail.com]. You can also connect with me on [LinkedIn](https://www.linkedin.com/in/shailendra-parihar-3122b4220).
 
 ## License
 
