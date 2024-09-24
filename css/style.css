@@ -520,7 +520,7 @@ color: var(--main-color);
 
 
 
-.projects {
+ .projects {
     padding: 10% 10% 6rem;
     background-color: var(--second-bg-color);
     margin-top: 6rem;
@@ -598,9 +598,51 @@ color: var(--main-color);
   .projects .project-card .btn:hover {
     background-color: var(--text-color);
     cursor: pointer;
-  }
+  } 
   
 
+
+
+projects {
+  padding: 10% 10% 6rem;
+  background-color: var(--second-bg-color);
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
+.projects .container {
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.projects .heading {
+  font-size: 5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.project-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.project-btn {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  padding: 1rem 2rem;
+  background-color: var(--main-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: .8rem;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.project-btn:hover {
+  background-color: var(--text-color);
+}
     
   
   

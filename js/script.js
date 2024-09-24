@@ -38,6 +38,21 @@ let header = document.querySelector("header");
 
     // animation footer on scroll
 
+
+
+
+
+    //project buttons
+    document.getElementById('minorProjectsBtn').addEventListener('click', function() {
+        window.location.href = 'minor-projects.html';
+      });
+      
+      document.getElementById('majorProjectsBtn').addEventListener('click', function() {
+        window.location.href = 'major-projects.html';
+      });
+
+
+      
 }
 const form = document.getElementById('form');
 const fullName = document.getElementById('name');

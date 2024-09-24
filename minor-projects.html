@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minor Projects - by Shailendra</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color: var(--main-color);
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center; /* Align icon and text vertically */
+            transition: color 0.3s ease;
+        }
+        .back-btn i {
+            margin-right: 8px; /* Space between icon and text */
+        }
+        .back-btn:hover {
+            color: var(--text-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn" id="backBtn">
+        <i class="fa fa-toggle-left"></i> Back
+    </div>
+
+    <header class="header">
+        <!-- Add your header content here -->
+    </header>
+
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="heading">Minor <span>Projects</span></h2>
+            <div class="project-cards">
+                
+                <div class="project-card">
+                  
+                    <a href="https://shelu18.github.io/calculator_project/" target="_blank">
+                      <img src="images/project11.jpg" alt="Project 1">
+                      <h3>Simple Calculator</h3>
+                      <p> This is Simple calculator i made this using html,css and js</p>
+                      <span class="btn">View Project</span>
+                    </a>
+                  </div>
+                <!-- Add more project cards as needed -->
+                <div class="project-card">
+                  <a href="https://shelu18.github.io/Miniproject2_parallaxWebsite/" target="_blank">
+                    <img src="images/project4.jpg" alt="Project 4">
+                    <h3>Project 4</h3>
+                    <p>Parallax Website</p>
+                    <span class="btn">View Project</span>
+                  </a>
+                </div>
+                <div class="project-card">
+                    <a href="https://advice-generator-project-amber.vercel.app/" target="_blank">
+                      <img src="images/projectimg.jpg" alt="Project 5">
+                      <h3>Project 5</h3>
+                      <p>Random Advice Generator </p>
+                      <span class="btn">View Project</span>
+                    </a>
+                  </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <!-- Add your footer content here -->
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('backBtn').addEventListener('click', function() {
+            window.location.href = 'index.html#projects';
+        });
+    </script>
+</body>
+</html>

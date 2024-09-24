@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Major  Projects - By Shailendra </title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color: var(--main-color);
+            cursor: pointer;
+            z-index: 1000;
+            transition: color 0.3s ease;
+        }
+        .back-btn:hover {
+            color: var(--text-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn" id="backBtn">
+        <i class="fas fa-arrow-left"></i>
+    </div>
+
+    <header class="header">
+        
+    </header>
+
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="heading">Major <span>Projects</span></h2>
+            <div class="project-cards">
+                <div class="project-card">
+                    <a href="https://shelu18.github.io/My_Portfolio/" target="_blank">
+                        <img src="images/project2.jpg" alt="portfolio website">
+                        <h3>Personal Portfolio website </h3>
+                        <p>A fully responsive personal portfolio website using HTML,CSS and JS</p>
+                        <span class="btn">View Project</span>
+                      </a>
+                    </div>
+                    <div class="project-card">
+                        <a href=" https://github.com/satwiktiwari22/Minor.git " target="_blank">
+                          <img src="images/chat_app.jpg" alt="Project 3">
+                          <h3>Real Time Chat Application </h3>
+                          <p> A Real Time chat application is Build using MERN Stack  </p>
+                          <span class="btn">View Project</span>
+                        </a>
+                      </div>
+                <!-- Add more project cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <!-- Add your footer content here -->
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('backBtn').addEventListener('click', function() {
+            window.location.href = 'index.html#projects';
+        });
+    </script>
+</body>
+</html>
