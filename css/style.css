@@ -413,7 +413,8 @@ color: var(--main-color);
     width: 15rem;
 }
 .btn-box.btns a::before{
-    background:var(--second-bg-color); /*check-point 5*/
+    background:var(--second-bg-color); 
+    /*check-point 5*/
 }
 
 .education {
