@@ -47,9 +47,12 @@ let header = document.querySelector("header");
         window.location.href = 'minor-projects.html';
       });
       
-      document.getElementById('majorProjectsBtn').addEventListener('click', function() {
-        window.location.href = 'major-projects.html';
-      });
+     
+        document.getElementById('majorProjectsBtn').addEventListener('click', function() {
+            window.location.href = 'major-projects.html'; 
+        });
+       
+   
 
 
       

@@ -1,0 +1,106 @@
+/* css/project-details.css */
+body {
+    font-family: 'Arial', sans-serif; /* Or your preferred font */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Or your preferred background */
+    color: #333; /* Or your preferred text color */
+}
+
+.project-detail-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; /* Card-like background */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.project-detail-container h1 {
+    color: var(--main-color); /* Use your theme color */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.project-detail-container h2 {
+    color: var(--heading-color); /* Use another theme color or adjust */
+    border-bottom: 2px solid var(--main-color);
+    padding-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.project-overview p,
+.project-features ul,
+.project-technologies ul {
+    margin-bottom: 20px;
+}
+
+.project-features ul li,
+.project-technologies ul li {
+    margin-bottom: 8px;
+    list-style-type: disc; /* Or none, or custom */
+    margin-left: 20px;
+}
+
+/* Image Carousel Styles */
+.carousel-container {
+    position: relative;
+    max-width: 100%; /* Or a fixed width like 600px */
+    margin: auto;
+    overflow: hidden; /* Hides parts of slides that are outside the container */
+    border-radius: 8px; /* Optional: rounds corners of the carousel */
+}
+
+.carousel-slide {
+    display: none; /* Hide all slides by default */
+    text-align: center; /* Center images if they are narrower than container */
+}
+
+.carousel-slide img {
+    width: 100%; /* Make images responsive within their slide */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 500px; /* Optional: constrain image height */
+    object-fit: cover; /* Or 'contain' based on preference */
+    vertical-align: middle;
+}
+
+/* Active slide */
+.carousel-slide.active {
+    display: block;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5); /* Semi-transparent background */
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    background-color: #333; /* Example footer color */
+    color: white;
+}

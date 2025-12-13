@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - Personal Portfolio</title>
+    <link rel="stylesheet" href="css/style.css"> <link rel="stylesheet" href="css/project-details.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Basic styles for back button if not globally defined elsewhere */
+        .back-to-projects-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 20px;
+            background-color: var(--main-color); /* Use your theme color */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .back-to-projects-btn:hover {
+            background-color: var(--text-color); /* Use your theme hover color */
+        }
+        .back-to-projects-btn i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <a href="major-projects.html" class="back-to-projects-btn"> <i class="fas fa-arrow-left"></i> Back to Projects
+    </a>
+
+    <div class="project-detail-container">
+        <h1>Personal Portfolio Website</h1>
+
+        <section class="project-overview">
+            <h2>Project Overview</h2>
+            <p>
+                This project is a comprehensive personal portfolio website designed to showcase my skills,
+                projects, and experiences. It's built with a focus on responsiveness and a clean user interface.
+                The primary technologies used are HTML5 for structure, CSS3 for styling (including Flexbox/Grid
+                for layout and animations), and JavaScript for interactive elements like a theme switcher,
+                typed.js animations, and smooth scrolling.
+            </p>
+        </section>
+
+        <section class="project-features">
+            <h2>Key Features</h2>
+            <ul>
+                <li>Fully Responsive Design: Adapts to all screen sizes (desktops, tablets, mobiles).</li>
+                <li>Interactive Animations: Engaging user experience with CSS and JavaScript animations.</li>
+                <li>Dynamic Content: JavaScript for typed text effects and potentially fetching project data.</li>
+                <li>Theme Switcher: (If applicable) Allows users to toggle between light and dark mode.</li>
+                <li>Smooth Scrolling: For easy navigation through sections.</li>
+                <li>Contact Form: (If applicable) With validation and submission capabilities.</li>
+                <li>Project Showcase: Clear presentation of various projects with links and descriptions.</li>
+            </ul>
+        </section>
+
+        <section class="project-image-carousel">
+            <h2>Image Carousel</h2>
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <img src="images/projectimages/portfolio.jpg" alt="Portfolio Screenshot 1">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/projectimages/portfolio2.jpg" alt="Portfolio Screenshot 2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/projectimages/portfolio3.png" alt="Portfolio Screenshot 3">
+                </div>
+                <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+                <button class="next" onclick="plusSlides(1)">&#10095;</button>
+            </div>
+        </section>
+
+        <section class="project-technologies">
+            <h2>Technologies Used</h2>
+            <ul>
+                <li>HTML5</li>
+                <li>CSS3 (Flexbox, Grid, Animations)</li>
+                <li>JavaScript (ES6+)</li>
+                </ul>
+        </section>
+
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Shailendra. All rights reserved.</p>
+    </footer>
+
+    <script src="js/project-details.js"></script> </body>
+    
+</html>

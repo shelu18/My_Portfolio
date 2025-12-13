@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Major  Projects - By Shailendra </title>
+    <title>Major Projects - By Shailendra</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .back-btn {
+              .back-btn {
             position: fixed;
             top: 20px;
             left: 20px;
@@ -15,56 +15,99 @@
             color: var(--main-color);
             cursor: pointer;
             z-index: 1000;
+            display: flex;
+            align-items: center; /* Align icon and text vertically */
             transition: color 0.3s ease;
+        }
+         .back-btn i {
+            margin-right: 8px; /* Space between icon and text */
         }
         .back-btn:hover {
             color: var(--text-color);
         }
+        /* Styles for the new buttons (add to your style.css or here) */
+        .project-card-buttons {
+            display: flex; /* Arrange buttons side-by-side */
+            justify-content: space-between; /* Space them out a bit */
+            margin-top: 10px; /* Add some space above the buttons */
+        }
+
+        .project-card-buttons .btn {
+            padding: 5px 8px; /* Adjust padding as needed */
+            text-decoration: none;
+            /* color: white; */ /* Or your preferred button text color */
+            /* background-color: var(--main-color); */ /* Or your preferred button bg color */
+            border-radius: 5px;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+            flex-grow: 1; /* Make buttons take equal width if needed */
+            text-align: center;
+            margin: 0 3px; /* Add small margin between buttons */
+        }
+
+        /* .project-card-buttons .btn:hover {
+            background-color: var(--text-color); /* Or your preferred hover color */
+        /* } */
+
+        /* Ensure your existing .btn class from style.css is compatible or adjust as needed */
+        /* For example, if .btn already has display: block, you might need to adjust flex properties. */
+
     </style>
 </head>
 <body>
     <div class="back-btn" id="backBtn">
-        <i class="fas fa-arrow-left"></i>
+        <i class="fa fa-toggle-left"></i> Back
     </div>
 
     <header class="header">
-        
-    </header>
+        </header>
 
     <section class="projects" id="projects">
         <div class="container">
             <h2 class="heading">Major <span>Projects</span></h2>
             <div class="project-cards">
                 <div class="project-card">
-                    <a href="https://shelu18.github.io/My_Portfolio/" target="_blank">
-                        <img src="images/project2.jpg" alt="portfolio website">
-                        <h3>Personal Portfolio website </h3>
-                        <p>A fully responsive personal portfolio website using HTML,CSS and JS</p>
-                        <span class="btn">View Project</span>
-                      </a>
-                    </div>
-                    <div class="project-card">
-                        <a href=" https://github.com/satwiktiwari22/Minor.git " target="_blank">
-                          <img src="images/chat_app.jpg" alt="Project 3">
-                          <h3>Real Time Chat Application </h3>
-                          <p> A Real Time chat application is Build using MERN Stack  </p>
-                          <span class="btn">View Project</span>
-                        </a>
-                      </div>
-                <!-- Add more project cards as needed -->
-            </div>
+                    <img src="images/projectimages/portfolio.jpg" alt="portfolio website">
+                    <h3>Personal Portfolio website</h3>
+                    <p>A fully responsive personal portfolio website using HTML, CSS, and JS.</p>
+                    <div class="project-card-buttons">
+                        <a href="https://shelu18.github.io/My_Portfolio/" target="_blank" class="btn">See Code</a>
+                        <a href="portfolio-details.html" class="btn">More </a>
+                        </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="images/chat_app.jpg" alt="Real Time Chat Application">
+                    <h3>Real Time Chat Application</h3>
+                    <p>A Real Time chat application built using MERN Stack.</p>
+                    <div class="project-card-buttons">
+                        <a href="https://github.com/satwiktiwari22/Minor.git" target="_blank" class="btn">See Code</a>
+                        <a href="chat-app-satwik-details.html" class="btn">More About</a>
+                        </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="images/chat_app_sih.jpg" alt="SIH Project"> <h3>SIH 2024 Project</h3> <p>A project developed for SIH 2024, potentially also a chat application or other concept using MERN Stack.</p>
+                    <div class="project-card-buttons">
+                        <a href="https://github.com/somtyagi20/SIH2024" target="_blank" class="btn">See Code</a>
+                        <a href="
+                        " class="btn">More About</a>
+                        </div>
+                </div>
+
+                </div>
         </div>
     </section>
 
     <footer class="footer">
-        <!-- Add your footer content here -->
-    </footer>
+        </footer>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
     <script>
         document.getElementById('backBtn').addEventListener('click', function() {
             window.location.href = 'index.html#projects';
         });
     </script>
+    
 </body>
 </html>
