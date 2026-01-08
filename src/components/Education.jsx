@@ -1,6 +1,8 @@
 import React from 'react'
 
 function Education() {
+  const baseUrl = import.meta.env.BASE_URL || '/'
+  
   return (
     <>
       <section className="education" id="education">
@@ -47,7 +49,7 @@ function Education() {
                 <div className="content">
                   <div className="year"><i className='bx bxs-calendar'></i>April 2024</div>
                   <h3>Meta certified in advance React</h3>
-                  <a href="cv/meta advanced react.jpg" target="blank">
+                  <a href={`${baseUrl}cv/meta advanced react.jpg`} target="blank">
                     <button className="crt-btn">View Certificate</button>
                   </a>
                 </div>
@@ -58,7 +60,7 @@ function Education() {
                   <div className="year"><i className='bx bxs-calendar'></i>May 2024</div>
                   <h3>Nptel certified in computer networks</h3>
                   <p></p>
-                  <a href="cv/cn_nptel.jpg" target="blank">
+                  <a href={`${baseUrl}cv/cn_nptel.jpg`} target="blank">
                     <button className="crt-btn">View Certificate</button>
                   </a>
                 </div>
@@ -69,7 +71,7 @@ function Education() {
                   <div className="year"><i className='bx bxs-calendar'></i>December 2024</div>
                   <h3>SIH finalist 2024</h3>
                   <p>problem statement : 1639 <br /> team name : go pandas <br /> solution proposed : Ai Ml and IOT Sensors Based Smart Fertilizer Recommendation System</p>
-                  <a href="./cv/certificate (1).pdf" target="blank">
+                  <a href={`${baseUrl}cv/certificate (1).pdf`} target="blank">
                     <button className="crt-btn">View Certificate</button>
                   </a>
                 </div>

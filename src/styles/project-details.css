@@ -1,69 +1,162 @@
 /* css/project-details.css */
 body {
-    font-family: 'Arial', sans-serif; /* Or your preferred font */
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; /* Or your preferred background */
-    color: #333; /* Or your preferred text color */
+}
+
+.back-to-projects-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 25px;
+    background: var(--second-bg-color);
+    color: var(--main-color);
+    text-decoration: none;
+    border-radius: 10px;
+    border: 2px solid var(--main-color);
+    font-size: 1.6rem;
+    font-weight: 600;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.back-to-projects-btn:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 221, 255, 0.6);
 }
 
 .project-detail-container {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff; /* Card-like background */
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 8px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10rem 5rem 5rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
 }
 
 .project-detail-container h1 {
-    color: var(--main-color); /* Use your theme color */
+    color: var(--main-color);
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 4rem;
+    font-size: 4.5rem;
 }
 
 .project-detail-container h2 {
-    color: var(--heading-color); /* Use another theme color or adjust */
+    color: var(--main-color);
     border-bottom: 2px solid var(--main-color);
     padding-bottom: 10px;
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 15px;
+    font-size: 3rem;
 }
 
-.project-overview p,
-.project-features ul,
+.project-overview {
+    margin-bottom: 2rem;
+}
+
+.project-features,
+.project-image-carousel,
+.project-technologies {
+    margin-bottom: 3rem;
+}
+
+.project-overview p {
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+.project-features ul {
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+.project-features ul li {
+    margin-bottom: 10px;
+    list-style-type: none;
+    margin-left: 0;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    position: relative;
+    padding-left: 2rem;
+}
+
+.project-features ul li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--main-color);
+    font-size: 2rem;
+}
+
 .project-technologies ul {
-    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding: 0;
+    list-style: none;
 }
 
-.project-features ul li,
 .project-technologies ul li {
-    margin-bottom: 8px;
-    list-style-type: disc; /* Or none, or custom */
-    margin-left: 20px;
+    background: var(--second-bg-color);
+    color: var(--text-color);
+    padding: 1rem 2rem;
+    border-radius: 0.8rem;
+    border: 2px solid var(--main-color);
+    font-size: 1.6rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 171, 240, 0.2);
+}
+
+.project-technologies ul li:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(0, 171, 240, 0.6);
+}
+
+.project-technologies ul li::before {
+    content: none;
 }
 
 /* Image Carousel Styles */
+.project-image-carousel {
+    margin-bottom: 3rem;
+}
+
 .carousel-container {
     position: relative;
-    max-width: 100%; /* Or a fixed width like 600px */
-    margin: auto;
-    overflow: hidden; /* Hides parts of slides that are outside the container */
-    border-radius: 8px; /* Optional: rounds corners of the carousel */
+    max-width: 100%;
+    margin: 2rem auto 0;
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 2px solid var(--main-color);
 }
 
 .carousel-slide {
-    display: none; /* Hide all slides by default */
-    text-align: center; /* Center images if they are narrower than container */
+    display: none;
+    text-align: center;
 }
 
 .carousel-slide img {
-    width: 100%; /* Make images responsive within their slide */
-    height: auto; /* Maintain aspect ratio */
-    max-height: 500px; /* Optional: constrain image height */
-    object-fit: cover; /* Or 'contain' based on preference */
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
     vertical-align: middle;
+    background: var(--second-bg-color);
 }
 
 /* Active slide */
@@ -79,13 +172,30 @@ body {
     width: auto;
     padding: 16px;
     margin-top: -22px;
-    color: white;
+    color: var(--main-color);
     font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
+    font-size: 24px;
+    transition: 0.3s ease;
+    border-radius: 0.5rem;
     user-select: none;
-    background-color: rgba(0,0,0,0.5); /* Semi-transparent background */
+    background-color: rgba(0, 171, 240, 0.2);
+    border: 2px solid var(--main-color);
+}
+
+.next {
+    right: 10px;
+    border-radius: 0.5rem;
+}
+
+.prev {
+    left: 10px;
+    border-radius: 0.5rem;
+}
+
+.prev:hover, .next:hover {
+    background-color: var(--main-color);
+    color: var(--bg-color);
+}
 }
 
 .next {

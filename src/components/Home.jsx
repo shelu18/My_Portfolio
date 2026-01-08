@@ -1,6 +1,8 @@
 import React from 'react'
 
 function Home() {
+  const baseUrl = import.meta.env.BASE_URL || '/'
+  
   return (
     <section className="home" id="home">
       <div className="home-content">
@@ -11,7 +13,7 @@ function Home() {
         <p>Transforming Ideas into Interactive Web Realities</p>
         <div className="btn-box">
           <a href="https://wa.me/+919993732470?text=Hello Shailendra! >" className="btn">Let's Talk</a>
-          <a href="cv/shailendra_parihar_resume.pdf" download className="btn">Download CV</a>
+          <a href={`${baseUrl}cv/shailendra_parihar_resume.pdf`} download className="btn">Download CV</a>
         </div>
       </div>
       <div className="home-sci">
