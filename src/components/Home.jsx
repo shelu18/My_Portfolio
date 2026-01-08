@@ -6,7 +6,7 @@ function Home() {
       <div className="home-content">
         <h1>Hey, I'm <span>Shailendra Parihar</span></h1>
         <div className="text-animate">
-          <h3>Fullstack Developer</h3>
+          <h3>React Native & Mobile Developer</h3>
         </div>
         <p>Transforming Ideas into Interactive Web Realities</p>
         <div className="btn-box">
