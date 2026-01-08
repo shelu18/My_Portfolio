@@ -9,8 +9,8 @@ function About() {
         <span className="circle-spin"></span>
       </div>
       <div className="about-content">
-        <h3>I'm Shailendra Parihar, A Frontend Developer</h3>
-        <p>I'm probably the most passionate web developer you will ever get to work with.</p>
+        <h3>I'm Shailendra Parihar, A React Native Developer</h3>
+        <p>I'm probably the most passionate mobile app developer you will ever get to work with.</p>
         <div className="btn-box btns">
           <a href="./about.html" className="btn">Read More</a>
         </div>

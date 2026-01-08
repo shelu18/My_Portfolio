@@ -1,24 +1,360 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>About Me</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>About Me - Shailendra Parihar</title>
+    <style>
+        .about-detailed {
+            min-height: 100vh;
+            background: var(--bg-color);
+            padding: 5rem 9%;
+        }
+
+        .about-detailed .heading {
+            text-align: center;
+            font-size: 4.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .about-detailed .heading span {
+            color: var(--main-color);
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+            margin-bottom: 4rem;
+        }
+
+        .profile-section {
+            position: sticky;
+            top: 2rem;
+        }
+
+        .profile-card {
+            background: var(--second-bg-color);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            text-align: center;
+            border: 0.2rem solid var(--main-color);
+        }
+
+        .profile-image {
+            width: 20rem;
+            height: 20rem;
+            border-radius: 50%;
+            border: 0.3rem solid var(--main-color);
+            margin-bottom: 2rem;
+            object-fit: cover;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .profile-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-card .role {
+            color: var(--main-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-card .location {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 4rem;
+            height: 4rem;
+            background: transparent;
+            border: 0.2rem solid var(--main-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--main-color);
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--main-color);
+            color: var(--bg-color);
+            box-shadow: 0 0 2rem var(--main-color);
+        }
+
+        .content-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .info-card {
+            background: var(--second-bg-color);
+            padding: 3rem;
+            border-radius: 2rem;
+            border-left: 0.5rem solid var(--main-color);
+        }
+
+        .info-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--main-color);
+        }
+
+        .info-card p {
+            font-size: 1.6rem;
+            line-height: 2.2rem;
+            text-align: justify;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tech-category {
+            background: linear-gradient(135deg, var(--second-bg-color) 0%, rgba(0, 221, 255, 0.05) 100%);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            border: 0.1rem solid rgba(0, 221, 255, 0.2);
+        }
+
+        .tech-category h4 {
+            font-size: 1.8rem;
+            color: var(--main-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .tech-category ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tech-category li {
+            font-size: 1.4rem;
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .tech-category li::before {
+            content: "▹";
+            color: var(--main-color);
+            font-size: 2rem;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-box {
+            background: var(--second-bg-color);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            text-align: center;
+            border: 0.2rem solid transparent;
+            transition: 0.3s;
+        }
+
+        .highlight-box:hover {
+            border-color: var(--main-color);
+            transform: translateY(-5px);
+        }
+
+        .highlight-box i {
+            font-size: 3.5rem;
+            color: var(--main-color);
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box h4 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box p {
+            font-size: 1.4rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 991px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-section {
+                position: relative;
+            }
+
+            .about-detailed {
+                padding: 5rem 5%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .profile-image {
+                width: 15rem;
+                height: 15rem;
+            }
+
+            .tech-stack {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="about-me-page">
-        <div class="image-container">
-            <img src="./images/about3.jpg" alt="my image">
-            <div class="circle-spin"></div>
+    <section class="about-detailed">
+        <h2 class="heading">About <span>Me</span></h2>
+        
+        <div class="about-container">
+            <!-- Profile Section -->
+            <div class="profile-section">
+                <div class="profile-card">
+                    <img src="./images/about3.jpg" alt="Shailendra Parihar" class="profile-image">
+                    <h3>Shailendra Parihar</h3>
+                    <p class="role">React Native & MERN Developer</p>
+                    <p class="location"><i class='bx bxs-map'></i> India</p>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com/shelu18" target="_blank"><i class='bx bxl-github'></i></a>
+                        <a href="https://www.linkedin.com/in/shailendra-parihar-3122b4220/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                        <a href="https://x.com/Shelu_parihar_" target="_blank"><i class='bx bxl-twitter'></i></a>
+                        <a href="https://www.instagram.com/shailendra_parihar07/" target="_blank"><i class='bx bxl-instagram'></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Section -->
+            <div class="content-section">
+                <div class="info-card">
+                    <h3><i class='bx bxs-user-detail'></i> Professional Summary</h3>
+                    <p>
+                        I'm a React Native & MERN Stack Developer with hands-on experience building and deploying cross-platform mobile applications. I've shipped production features like real-time chat, map integrations, push notifications, auto-dial workflows, secure authentication, and in-app payments. I'm comfortable owning features end-to-end – from integrating REST APIs to releasing apps on the Play Store and App Store.
+                    </p>
+                    <p>
+                        At Ultraxpert Technologies, I worked on production React Native apps including <strong>Drinking Buddy</strong> (a social networking app for club discovery) and a <strong>CRM Autodialer</strong> for sales teams. My work involved implementing Socket.IO for real-time chat, Google Maps SDK integration, OAuth 2.0 authentication, FCM push notifications, background call tracking, and managing EAS builds for both Android and iOS platforms.
+                    </p>
+                    <p>
+                        Previously, as an SDE Intern at Site Guru & Websotech, I built responsive web dashboards using Vue.js and Vuetify, integrated backend APIs for 100+ daily users, and resolved production issues affecting performance and reliability.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3><i class='bx bxs-code-alt'></i> Tech Stack</h3>
+                    <div class="tech-stack">
+                        <div class="tech-category">
+                            <h4><i class='bx bxl-react'></i> Mobile Development</h4>
+                            <ul>
+                                <li>React Native</li>
+                                <li>TypeScript</li>
+                                <li>Expo</li>
+                                <li>React Navigation</li>
+                                <li>Zustand</li>
+                                <li>Axios</li>
+                                <li>Firebase Cloud Messaging</li>
+                                <li>AsyncStorage</li>
+                            </ul>
+                        </div>
+                        <div class="tech-category">
+                            <h4><i class='bx bxs-server'></i> Backend & Database</h4>
+                            <ul>
+                                <li>Node.js</li>
+                                <li>Express.js</li>
+                                <li>MongoDB</li>
+                                <li>MySQL</li>
+                                <li>REST APIs</li>
+                                <li>JWT Authentication</li>
+                                <li>Socket.IO</li>
+                            </ul>
+                        </div>
+                        <div class="tech-category">
+                            <h4><i class='bx bxs-wrench'></i> Tools & DevOps</h4>
+                            <ul>
+                                <li>Git & GitHub</li>
+                                <li>Postman</li>
+                                <li>Docker</li>
+                                <li>AWS (Basic)</li>
+                                <li>EAS Build</li>
+                                <li>App Store Deployment</li>
+                                <li>Play Store Deployment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3><i class='bx bxs-star'></i> Key Highlights</h3>
+                    <div class="highlights">
+                        <div class="highlight-box">
+                            <i class='bx bxs-mobile'></i>
+                            <h4>Cross-Platform Apps</h4>
+                            <p>Built & deployed apps for Android & iOS</p>
+                        </div>
+                        <div class="highlight-box">
+                            <i class='bx bxs-network-chart'></i>
+                            <h4>Real-Time Features</h4>
+                            <p>Implemented chat & live updates</p>
+                        </div>
+                        <div class="highlight-box">
+                            <i class='bx bxs-lock-alt'></i>
+                            <h4>Secure Auth</h4>
+                            <p>OAuth 2.0 & JWT implementation</p>
+                        </div>
+                        <div class="highlight-box">
+                            <i class='bx bxs-rocket'></i>
+                            <h4>Production Ready</h4>
+                            <p>EAS builds & store deployments</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3><i class='bx bxs-bullseye'></i> What I'm Looking For</h3>
+                    <p>
+                        I'm seeking <strong>React Native Developer</strong> and <strong>MERN / Full-Stack Developer</strong> roles (remote preferred) where I can ship meaningful mobile and web features, collaborate with experienced engineers, and continue advancing my skills in React, React Native, and Node.js.
+                    </p>
+                    <p>
+                        I bring a fresh perspective, attention to detail, strong problem-solving abilities, and an unwavering commitment to continuous learning. I thrive in environments that foster innovation and growth, and I'm eager to contribute to forward-thinking teams building impactful solutions.
+                    </p>
+                    <p style="margin-top: 2rem; font-size: 1.8rem; color: var(--main-color);">
+                        <i class='bx bxs-envelope'></i> Open to remote opportunities • Available for code reviews and live demos
+                    </p>
+                </div>
+            </div>
         </div>
-        <p class="mee">
-            Hello, I'm Shailendra Parihar, a Final-year Computer Science undergraduate student, deeply passionate about web development. Problem-solving is a forte of mine, and I boast a solid grasp of Data Structures and Algorithms  to enhance my skill set.<br><br> Proficient in HTML, CSS, JavaScript, and ReactJS, I'm all about translating these skills into practical solutions.
-
-The thrill of untangling complex issues and implementing effective solutions is what keeps me hooked on web development.<br><br> I'm not just seeking opportunities; I'm excited about diving into projects that can make a real impact. Each project, for me, is a chance to grow and learn.
-
-I bring more than just technical skills to the table. My approach involves a fresh perspective, a sharp eye for detail, and an unwavering commitment to continuous learning.<br><br> I flourish in environments that foster innovation and growth. I'm not just ready to tackle challenges; I'm eager to embrace them, as they present opportunities for both personal and professional development.
-
-Apart from my technical expertise, my enthusiasm for web development is complemented by a proactive nature and a collaborative spirit. I'm ready to be an invaluable asset to any forward-thinking team, leveraging my skills, problem-solving mindset, and knowledge of DSA to create impactful solutions.</p>
-    </div>
-    
+    </section>
 </body>
 </html>

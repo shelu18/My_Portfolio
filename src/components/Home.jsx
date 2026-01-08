@@ -11,7 +11,7 @@ function Home() {
         <p>Transforming Ideas into Interactive Web Realities</p>
         <div className="btn-box">
           <a href="https://wa.me/+919993732470?text=Hello Shailendra! >" className="btn">Let's Talk</a>
-          <a href="cv/Updated-Resume.pdf" download className="btn">Download CV</a>
+          <a href="cv/shailendra_parihar_resume.pdf" download className="btn">Download CV</a>
         </div>
       </div>
       <div className="home-sci">
