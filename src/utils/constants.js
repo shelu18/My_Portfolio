@@ -13,9 +13,8 @@ export const SOCIAL_LINKS = {
 
 export const PERSONAL_INFO = {
   name: 'Shailendra Parihar',
-  role: 'React Native Developer',
-  tagline:
-    'Building cross-platform apps that ship to 5,000+ real users. I take mobile features from architecture decision to App Store approval — no hand-holding required.',
+  role: 'React Native & Mobile Developer',
+  tagline: "Building the next app you'll actually use.",
   email: 'officialshailendraparihar18@gmail.com',
   phone: '+919993732470',
   whatsappLink: 'https://wa.me/+919993732470?text=Hello Shailendra! >',
