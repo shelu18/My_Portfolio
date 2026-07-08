@@ -1,123 +1,109 @@
 /**
  * Centralized project data — single source of truth for all project pages.
- * Used by MajorProjectsPage, MinorProjectsPage, and ProjectDetailsPage.
+ * Each project uses the Problem → Role → Stack → Outcome structure.
  */
 
 const BASE_URL = import.meta.env.BASE_URL || '/'
 
-export const majorProjects = [
+/**
+ * All projects — ordered newest-first.
+ * `featured: true` projects appear on the homepage (max 3).
+ */
+export const allProjects = [
   {
-    id: 'portfolio',
-    image: `${BASE_URL}images/projectimages/portfolio.jpg`,
-    title: 'Personal Portfolio website',
-    description: 'A fully responsive personal portfolio website using HTML, CSS, and JS.',
-    githubLink: 'https://shelu18.github.io/My_Portfolio/',
-    detailsLink: '/project-details/portfolio',
-  },
-  {
-    id: 'chat-app',
-    image: `${BASE_URL}images/chat_app.jpg`,
-    title: 'Real Time Chat Application',
-    description: 'A Real Time chat application built using MERN Stack.',
-    githubLink: 'https://github.com/satwiktiwari22/Minor.git',
-    detailsLink: '/project-details/chat-app',
-  },
-  {
-    id: 'sih-2024',
-    image: `${BASE_URL}images/projectimages/digifasalimg.jpg`,
-    title: 'SIH 2024 Project',
+    id: 'magicalswap',
+    title: 'MagicalSwap — Rental Solution App',
     description:
-      'A project developed for SIH 2024, potentially also a chat application or other concept using MERN Stack.',
-    githubLink: 'https://github.com/somtyagi20/SIH2024',
-    detailsLink: '/project-details/sih-2024',
+      'Connects tenants and property owners with verified rental listings, featuring area-manager support and geolocation-based discovery.',
+    tags: ['React Native CLI', 'TypeScript', 'Branch.io', 'Sentry'],
+    coverImage: `${BASE_URL}images/covers/magicalswap-cover.webp`,
+    githubLink: '',
+    detailsLink: '/project-details/magicalswap',
+    featured: true,
+  },
+  {
+    id: 'drinking-buddy',
+    title: 'Drinking Buddy — Social Networking App',
+    description:
+      'Club and venue discovery app with real-time chat, Google Maps integration, in-app payments, and secure OAuth authentication.',
+    tags: ['React Native', 'TypeScript', 'Expo', 'Socket.IO', 'Google Maps SDK', 'Reanimated'],
+    coverImage: `${BASE_URL}images/covers/drinking-buddy-cover.webp`,
+    githubLink: '',
+    detailsLink: '/project-details/drinking-buddy',
+    featured: true,
+  },
+  {
+    id: 'crm-autodialer',
+    title: 'CRM Autodialer — Mobile Sales App',
+    description:
+      'Automated lead-to-call pipeline that reduces manual dialing effort for sales teams with FCM-triggered auto-dial and call tracking.',
+    tags: ['React Native', 'TypeScript', 'Expo', 'Zustand', 'FCM', 'Jest'],
+    coverImage: `${BASE_URL}images/covers/crm-autodialer-cover.webp`,
+    githubLink: '',
+    detailsLink: '/project-details/crm-autodialer',
+    featured: true,
   },
 ]
 
-export const minorProjects = [
-  {
-    id: 1,
-    image: `${BASE_URL}images/project11.jpg`,
-    title: 'Simple Calculator',
-    description: 'This is Simple calculator i made this using html, css and js',
-    link: 'https://shelu18.github.io/calculator_project/',
-  },
-  {
-    id: 2,
-    image: `${BASE_URL}images/project4.jpg`,
-    title: 'Parallax Website',
-    description: 'Parallax Website',
-    link: 'https://shelu18.github.io/Miniproject2_parallaxWebsite/',
-  },
-  {
-    id: 3,
-    image: `${BASE_URL}images/projectimg.jpg`,
-    title: 'Random Advice Generator',
-    description: 'Random Advice Generator',
-    link: 'https://advice-generator-project-amber.vercel.app/',
-  },
-  {
-    id: 4,
-    image: `${BASE_URL}images/color-changer.png`,
-    title: 'Color Scheme Switcher',
-    description:
-      'clicking on one of the of the mentioned colors to change the background color of the page',
-    link: 'https://shelu18.github.io/mini2-background-color/',
-  },
-]
+/** Returns only the featured projects (for homepage). */
+export const getFeaturedProjects = () =>
+  allProjects.filter((p) => p.featured).slice(0, 3)
 
 export const projectDetails = {
-  portfolio: {
-    title: 'Personal Portfolio Website',
-    overview: `This project is a comprehensive personal portfolio website designed to showcase my skills,
-      projects, and experiences. It's built with a focus on responsiveness and a clean user interface.
-      The primary technologies used are HTML5 for structure, CSS3 for styling (including Flexbox/Grid
-      for layout and animations), and JavaScript for interactive elements like a theme switcher,
-      typed.js animations, and smooth scrolling.`,
+  magicalswap: {
+    title: 'MagicalSwap — Rental Solution App',
+    overview: `MagicalSwap connects tenants and property owners with verified rental listings in Indore, with local area-manager support. The app serves 5,000+ active users on the Play Store.`,
+    problem:
+      'Property search in Indore lacks a reliable digital platform — tenants and owners depend on word-of-mouth and unverified listings, leading to wasted time and trust issues.',
+    role: `Upgraded the app to React Native's New Architecture (Fabric, TurboModules) — native Gradle/Podfile config changes — while maintaining production stability for an active Play Store user base of 5,000+. Implemented Branch.io deep linking for property-sharing flows, geolocation-based nearby listing discovery, and Sentry crash monitoring across Android/iOS.`,
+    outcome:
+      'Zero-downtime New Architecture migration on a live app with 5,000+ active users.',
     features: [
-      'Fully Responsive Design: Adapts to all screen sizes (desktops, tablets, mobiles).',
-      'Interactive Animations: Engaging user experience with CSS and JavaScript animations.',
-      'Dynamic Content: JavaScript for typed text effects and potentially fetching project data.',
-      'Theme Switcher: (If applicable) Allows users to toggle between light and dark mode.',
-      'Smooth Scrolling: For easy navigation through sections.',
-      'Contact Form: (If applicable) With validation and submission capabilities.',
-      'Project Showcase: Clear presentation of various projects with links and descriptions.',
+      'New Architecture migration (Fabric, TurboModules) with zero downtime',
+      'Branch.io deep linking for property-sharing flows',
+      'Geolocation-based nearby listing discovery',
+      'Sentry crash monitoring across Android/iOS',
+      'Native Gradle/Podfile configuration for bare CLI setup',
     ],
-    images: [
-      `${BASE_URL}images/projectimages/portfolio.jpg`,
-      `${BASE_URL}images/projectimages/portfolio2.jpg`,
-      `${BASE_URL}images/projectimages/portfolio3.png`,
-    ],
-    technologies: ['HTML5', 'CSS3 (Flexbox, Grid, Animations)', 'JavaScript (ES6+)'],
+    images: [`${BASE_URL}images/covers/magicalswap-cover.webp`],
+    technologies: ['React Native CLI', 'TypeScript', 'Branch.io', 'Sentry', 'Geolocation', 'New Architecture'],
   },
-  'chat-app': {
-    title: 'Real Time Chat Application',
-    overview: `A real-time chat application built with the MERN stack. This application allows users to 
-      communicate instantly with features like real-time messaging, user authentication, and a modern UI.`,
+  'drinking-buddy': {
+    title: 'Drinking Buddy — Social Networking App',
+    overview: `A club/venue discovery and social connection app that lets users find nearby venues, connect with others, and chat in real-time. Live on both iOS and Android.`,
+    problem:
+      'People looking for nightlife and social venues have no integrated way to discover clubs, connect with others going out, and communicate — all in one app.',
+    role: `Built real-time chat (Socket.IO), club discovery via Google Maps SDK, in-app payment flows, secure Google Sign-In (OAuth 2.0) with token-based session handling, native-driven animations and gestures (Reanimated, Gesture Handler), NativeWind utility-first styling, and full EAS build/release management for both stores.`,
+    outcome: 'Live on iOS and Android.',
     features: [
-      'Real-time messaging using Socket.IO',
-      'User authentication and authorization',
-      'Modern and responsive UI',
-      'Message history and persistence',
-      'Online status indicators',
+      'Real-time chat using Socket.IO',
+      'Club discovery with Google Maps SDK',
+      'In-app payment integration',
+      'OAuth 2.0 Google Sign-In with token-based sessions',
+      'Native animations with Reanimated & Gesture Handler',
+      'NativeWind utility-first styling',
+      'EAS build/release for App Store & Play Store',
     ],
-    images: [`${BASE_URL}images/chat_app.jpg`],
-    technologies: ['MongoDB', 'Express.js', 'React', 'Node.js', 'Socket.IO'],
+    images: [`${BASE_URL}images/covers/drinking-buddy-cover.webp`],
+    technologies: ['React Native', 'TypeScript', 'Expo', 'Socket.IO', 'Google Maps SDK', 'Reanimated', 'NativeWind', 'OAuth 2.0'],
   },
-  'sih-2024': {
-    title: 'SIH 2024 Project',
-    overview: `A project developed for Smart India Hackathon 2024. This project demonstrates innovative 
-      solutions using the MERN stack technology.`,
+  'crm-autodialer': {
+    title: 'CRM Autodialer — Mobile Sales App',
+    overview: `A mobile CRM tool that automates the lead-to-call pipeline for sales teams, reducing manual dialing effort through FCM-triggered auto-dial, call tracking, and backend sync.`,
+    problem:
+      'Sales teams waste significant time manually dialing leads, tracking call outcomes, and syncing data back to the CRM — a repetitive, error-prone workflow.',
+    role: `Built the full lead-to-call pipeline — FCM push notification → native auto-dial trigger → call duration tracking via AppState → outcome capture → backend sync. Zustand for lead/call state, AsyncStorage for JWT persistence, Jest unit tests for core business logic.`,
+    outcome:
+      'End-to-end automated workflow reducing manual dialing effort.',
     features: [
-      'Innovative problem-solving approach',
-      'Full-stack implementation',
-      'Scalable architecture',
-      'Modern development practices',
+      'FCM push notification → native auto-dial trigger',
+      'Call duration tracking via AppState',
+      'Outcome capture and backend sync',
+      'Zustand state management for leads/calls',
+      'AsyncStorage JWT persistence',
+      'Jest unit tests for core business logic',
     ],
-    images: [
-      `${BASE_URL}images/projectimages/digifasalimg.jpg`,
-      `${BASE_URL}images/projectimages/digifasalimg2.jpg`,
-      `${BASE_URL}images/projectimages/digifasal3.jpg`,
-    ],
-    technologies: ['MongoDB', 'Express.js', 'React', 'Node.js'],
+    images: [`${BASE_URL}images/covers/crm-autodialer-cover.webp`],
+    technologies: ['React Native', 'TypeScript', 'Expo', 'Zustand', 'FCM', 'Jest', 'AsyncStorage'],
   },
 }

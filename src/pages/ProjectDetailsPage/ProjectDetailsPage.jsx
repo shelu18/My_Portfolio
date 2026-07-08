@@ -7,7 +7,7 @@ function ProjectDetailsPage() {
   const { projectId } = useParams()
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  const project = projectDetails[projectId] || projectDetails.portfolio
+  const project = projectDetails[projectId] || projectDetails.magicalswap
 
   const plusSlides = (n) => {
     let newSlide = currentSlide + n
@@ -22,7 +22,7 @@ function ProjectDetailsPage() {
 
   return (
     <>
-      <Link to="/major-projects" className="back-to-projects-btn">
+      <Link to="/projects" className="back-to-projects-btn">
         <i className="bx bx-arrow-back"></i> Back to Projects
       </Link>
 
@@ -30,9 +30,30 @@ function ProjectDetailsPage() {
         <h1>{project.title}</h1>
 
         <section className="project-overview">
-          <h2>Project Overview</h2>
+          <h2>Overview</h2>
           <p>{project.overview}</p>
         </section>
+
+        {project.problem && (
+          <section className="project-overview">
+            <h2>The Problem</h2>
+            <p>{project.problem}</p>
+          </section>
+        )}
+
+        {project.role && (
+          <section className="project-overview">
+            <h2>My Role</h2>
+            <p>{project.role}</p>
+          </section>
+        )}
+
+        {project.outcome && (
+          <section className="project-overview">
+            <h2>Outcome</h2>
+            <p>{project.outcome}</p>
+          </section>
+        )}
 
         <section className="project-image-carousel">
           <h2>Project Screenshots</h2>

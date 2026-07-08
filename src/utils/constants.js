@@ -13,10 +13,15 @@ export const SOCIAL_LINKS = {
 
 export const PERSONAL_INFO = {
   name: 'Shailendra Parihar',
-  role: 'React Native & Mobile Developer',
-  tagline: 'Transforming Ideas into Interactive Web Realities',
+  role: 'React Native Developer',
+  tagline:
+    'Building cross-platform apps that ship to 5,000+ real users. I take mobile features from architecture decision to App Store approval — no hand-holding required.',
   email: 'officialshailendraparihar18@gmail.com',
   phone: '+919993732470',
   whatsappLink: 'https://wa.me/+919993732470?text=Hello Shailendra! >',
   resumePath: `${BASE_URL}cv/react-native-sp.pdf`,
 }
+
+export const ABOUT_TEXT = `I build production React Native apps for iOS and Android — from first commit to store approval. Over the last 2 years I've shipped features used by thousands of real people: real-time chat, live location discovery, deep linking, push notifications, and secure OAuth flows.
+
+I'm equally comfortable in Expo and bare CLI, and I don't shy away from native config — Gradle, Podfile, Xcode signing, the New Architecture migration. When a feature needs an owner end-to-end, that's the role I take.`

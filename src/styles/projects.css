@@ -1,0 +1,469 @@
+/* ===================================================================
+   PROJECTS — Modern Card-Based Design System
+   =================================================================== */
+
+/* ===== HOMEPAGE PROJECTS SECTION ===== */
+.projects-section {
+  padding: var(--section-padding);
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Parallax floating decoration orbs */
+.projects-section::before,
+.projects-section::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: 0.08;
+}
+
+.projects-section::before {
+  width: 40rem;
+  height: 40rem;
+  background: var(--accent);
+  top: -15rem;
+  right: -10rem;
+}
+
+.projects-section::after {
+  width: 30rem;
+  height: 30rem;
+  background: var(--accent-light);
+  bottom: -10rem;
+  left: -8rem;
+}
+
+.projects-section .container {
+  max-width: 120rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.projects-section .section-subtitle {
+  text-align: center;
+  font-size: 1.6rem;
+  color: var(--text-secondary);
+  margin-bottom: 5rem;
+  max-width: 60rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== PROJECTS GRID ===== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+/* ===== VIEW ALL CTA ===== */
+.projects-cta {
+  text-align: center;
+}
+
+.projects-cta .btn-view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.4rem 3.5rem;
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--border);
+  border-radius: 5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.4s var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-cta .btn-view-all::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent-gradient);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.projects-cta .btn-view-all:hover {
+  border-color: var(--accent);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px var(--accent-glow);
+}
+
+.projects-cta .btn-view-all:hover::before {
+  opacity: 1;
+}
+
+.projects-cta .btn-view-all i {
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.projects-cta .btn-view-all:hover i {
+  transform: translateX(4px);
+}
+
+/* ===================================================================
+   PROJECT CARD (.pcard) — Social Media Preview Style
+   =================================================================== */
+.pcard {
+  position: relative;
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 1.8rem;
+  overflow: hidden;
+  transition:
+    transform 0.4s var(--ease-out-expo),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.pcard:hover {
+  border-color: var(--border-accent);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(255, 60, 92, 0.08);
+}
+
+/* Cursor-following glow */
+.pcard__glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* ===== Card Image ===== */
+.pcard__img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+}
+
+.pcard__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out-expo);
+  display: block;
+}
+
+.pcard:hover .pcard__img {
+  transform: scale(1.08);
+}
+
+/* Gradient overlay on image */
+.pcard__img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(10, 10, 10, 0.6) 80%,
+    rgba(10, 10, 10, 0.9) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ===== Card Body ===== */
+.pcard__body {
+  padding: 2.2rem 2.4rem 2.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+/* Title row */
+.pcard__title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.pcard__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin: 0;
+  flex: 1;
+}
+
+/* GitHub icon */
+.pcard__github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.pcard__github:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  transform: rotate(-8deg) scale(1.1);
+  box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+/* ===== Tech Tag Pills ===== */
+.pcard__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.pcard__tag {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(255, 60, 92, 0.08);
+  border: 1px solid rgba(255, 60, 92, 0.15);
+  border-radius: 5rem;
+  transition: all 0.3s ease;
+}
+
+.pcard:hover .pcard__tag {
+  background: rgba(255, 60, 92, 0.12);
+  border-color: rgba(255, 60, 92, 0.25);
+}
+
+/* Description */
+.pcard__desc {
+  font-size: 1.45rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  flex: 1;
+  margin: 0 0 1.8rem;
+  /* Clamp to 3 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* CTA link */
+.pcard__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--accent);
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.pcard__cta i {
+  font-size: 1.8rem;
+  transition: transform 0.3s ease;
+}
+
+.pcard__cta:hover {
+  color: var(--accent-light);
+}
+
+.pcard__cta:hover i {
+  transform: translateX(5px);
+}
+
+/* ===================================================================
+   PROJECTS PAGE — /projects
+   =================================================================== */
+.projects-page {
+  background: var(--bg-primary);
+  min-height: 100vh;
+}
+
+/* Hero banner with parallax-inspired depth */
+.projects-page__hero {
+  position: relative;
+  padding: 14rem 8% 6rem;
+  text-align: center;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.projects-page__hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80rem;
+  height: 80rem;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* Large decorative text behind the heading */
+.projects-page__hero-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(8rem, 18vw, 22rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.02);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.04em;
+}
+
+.projects-page__hero h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+}
+
+.projects-page__hero p {
+  font-size: 1.7rem;
+  color: var(--text-secondary);
+  max-width: 55rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  line-height: 1.6;
+}
+
+/* Divider line */
+.projects-page__hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* Page content */
+.projects-page__content {
+  padding: 6rem 8% 8rem;
+  max-width: 130rem;
+  margin: 0 auto;
+}
+
+.projects-page__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+/* ===================================================================
+   CARD ENTRANCE ANIMATIONS
+   =================================================================== */
+@keyframes cardSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Cards animate in with staggered delay (set via inline style) */
+.pcard.revealed {
+  animation: cardSlideUp 0.7s var(--ease-out-expo) both;
+}
+
+/* ===================================================================
+   RESPONSIVE
+   =================================================================== */
+@media (max-width: 1024px) {
+  .projects-grid,
+  .projects-page__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid,
+  .projects-page__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .projects-page__hero {
+    padding: 12rem 5% 4rem;
+  }
+
+  .projects-page__content {
+    padding: 4rem 5% 6rem;
+  }
+
+  .pcard__title {
+    font-size: 1.8rem;
+  }
+
+  .pcard__body {
+    padding: 1.8rem 2rem 2rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .pcard__img-wrap {
+    aspect-ratio: 16 / 9;
+  }
+
+  .pcard__tag {
+    font-size: 1rem;
+    padding: 0.3rem 0.8rem;
+  }
+}

@@ -1,26 +1,69 @@
-import { SOCIAL_LINKS, PERSONAL_INFO } from '@utils/constants'
+import { SOCIAL_LINKS, PERSONAL_INFO, BASE_URL } from '@utils/constants'
 
 function Hero() {
   return (
     <section className="home" id="home">
+      {/* Left side — Text content with flying animations */}
       <div className="home-content">
-        <h1>Hey, I'm <span>{PERSONAL_INFO.name}</span></h1>
-        <div className="text-animate">
+        <div className="hero-name-block">
+          <h1 className="hero-line hero-line-1">
+            Hi, I'm
+          </h1>
+          <h1 className="hero-line hero-line-2 hero-name-float">
+            <span>{PERSONAL_INFO.name.split(' ')[0]}</span>
+          </h1>
+          <h1 className="hero-line hero-line-3">
+            {PERSONAL_INFO.name.split(' ')[1]}
+          </h1>
+        </div>
+
+        <div className="hero-role">
           <h3>{PERSONAL_INFO.role}</h3>
         </div>
-        <p>{PERSONAL_INFO.tagline}</p>
-        <div className="btn-box">
-          <a href={PERSONAL_INFO.whatsappLink} className="btn">Let's Talk</a>
-          <a href={PERSONAL_INFO.resumePath} download="react-native-resume.pdf" className="btn">Download CV</a>
+
+        <p className="hero-tagline">{PERSONAL_INFO.tagline}</p>
+
+        <div className="hero-info-row">
+          <div className="hero-info-group">
+            <span className="hero-info-label">FIND ME ON</span>
+            <div className="hero-social">
+              <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i className='bx bxl-linkedin'></i>
+              </a>
+              <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i className='bx bxl-github'></i>
+              </a>
+              <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <i className='bx bxl-twitter'></i>
+              </a>
+              <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i className='bx bxl-instagram'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="hero-cta">
+          <a href={PERSONAL_INFO.whatsappLink} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+            Let's Talk
+          </a>
+          <a href={PERSONAL_INFO.resumePath} download="react-native-resume.pdf" className="btn btn-outline">
+            Download CV
+          </a>
         </div>
       </div>
-      <div className="home-sci">
-        <a href={SOCIAL_LINKS.twitter}><i className='bx bxl-twitter'></i></a>
-        <a href={SOCIAL_LINKS.linkedin}><i className='bx bxl-linkedin'></i></a>
-        <a href={SOCIAL_LINKS.instagram}><i className='bx bxl-instagram'></i></a>
-        <a href={SOCIAL_LINKS.github}><i className='bx bxl-github'></i></a>
+
+      {/* Right side — Portrait with glow */}
+      <div className="home-portrait">
+        <div className="portrait-glow"></div>
+        <div className="portrait-wrapper">
+          <img
+            src={`${BASE_URL}images/sheluji.jpeg`}
+            alt={PERSONAL_INFO.name}
+            className="portrait-img"
+          />
+        </div>
       </div>
-      <div className="home-imgHover"></div>
     </section>
   )
 }

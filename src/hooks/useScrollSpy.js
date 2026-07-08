@@ -22,17 +22,26 @@ export function useScrollSpy() {
       const sections = document.querySelectorAll('section')
       const navLinks = document.querySelectorAll('header nav a')
 
+      // Map certain sections to a different nav link
+      // (experience & education are grouped under "about" in the nav)
+      const sectionToNav = {
+        experience: 'about',
+        education: 'about',
+        achievements: 'about',
+      }
+
       sections.forEach((sec) => {
         const top = window.scrollY
         const offset = sec.offsetTop - 100
         const height = sec.offsetHeight
         const id = sec.getAttribute('id')
+        const navId = sectionToNav[id] || id
 
         if (top >= offset && top < offset + height) {
           navLinks.forEach((links) => {
             links.classList.remove('active')
             const activeLink = document.querySelector(
-              'header nav a[href*=' + id + ']'
+              'header nav a[href*=' + navId + ']'
             )
             if (activeLink) activeLink.classList.add('active')
           })

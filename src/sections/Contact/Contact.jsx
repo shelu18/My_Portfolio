@@ -2,16 +2,18 @@ import { useState } from 'react'
 import emailjs from '@emailjs/browser'
 
 // =====================================================
-// ⚠️  REPLACE THESE WITH YOUR EMAILJS CREDENTIALS  ⚠️
-// 
-// 1. Sign up at https://www.emailjs.com (free)
-// 2. Add Gmail as an email service → copy Service ID
-// 3. Create an email template → copy Template ID
-// 4. Go to Account → API Keys → copy Public Key
+// EmailJS credentials loaded from .env file (gitignored)
+//
+// Create a .env file in the project root with:
+//   VITE_EMAILJS_SERVICE_ID="service_xxxxx"
+//   VITE_EMAILJS_TEMPLATE_ID="template_xxxxx"
+//   VITE_EMAILJS_PUBLIC_KEY="your_public_key"
+//
+// Restart the dev server after changing .env values.
 // =====================================================
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';   // e.g. 'service_abc1234'
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // e.g. 'template_xyz5678'
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';    // e.g. 'aBcDeFgHiJkLmNoPq'
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || '';
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '';
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '';
 
 function Contact() {
 
@@ -40,7 +42,6 @@ function Contact() {
       ...prev,
       [id]: value
     }));
-    // Clear error when user starts typing
     if (errors[id]) {
       setErrors(prev => ({
         ...prev,
@@ -57,7 +58,6 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Validation
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = "Full Name can't be blank";
     if (!formData.email.trim()) {
@@ -74,29 +74,22 @@ function Contact() {
       return;
     }
 
-    // Check if credentials are configured
-    if (
-      EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID' ||
-      EMAILJS_TEMPLATE_ID === 'YOUR_TEMPLATE_ID' ||
-      EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY'
-    ) {
-      showToast('error', 'EmailJS is not configured. Please update the credentials in Contact.jsx');
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      showToast('error', 'EmailJS is not configured. Please add credentials to the .env file.');
       console.error(
         'EmailJS credentials not configured!\n' +
-        'Open src/components/Contact.jsx and replace:\n' +
-        '  - YOUR_SERVICE_ID\n' +
-        '  - YOUR_TEMPLATE_ID\n' +
-        '  - YOUR_PUBLIC_KEY\n' +
-        'with your actual EmailJS credentials.'
+        'Create a .env file in the project root with:\n' +
+        '  VITE_EMAILJS_SERVICE_ID="service_xxxxx"\n' +
+        '  VITE_EMAILJS_TEMPLATE_ID="template_xxxxx"\n' +
+        '  VITE_EMAILJS_PUBLIC_KEY="your_public_key"\n' +
+        'Then restart the dev server.'
       );
       return;
     }
 
-    // Send email via EmailJS
     setSending(true);
 
     try {
-      // Template params must match your EmailJS template variables
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
@@ -105,16 +98,16 @@ function Contact() {
         message: formData.message,
       };
 
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
-        templateParams,
-        EMAILJS_PUBLIC_KEY
+        templateParams
       );
 
       showToast('success', "Message sent! I'll get back to you soon.");
 
-      // Reset form
       setFormData({
         name: '',
         email: '',
@@ -124,7 +117,23 @@ function Contact() {
       });
     } catch (error) {
       console.error('EmailJS Error:', error);
-      showToast('error', 'Failed to send message. Please try again or email me directly.');
+      
+      let errorMsg = 'Failed to send message.';
+      if (error?.status === 400) {
+        errorMsg = 'Email service error. Please check your EmailJS template variables match the form fields.';
+        console.error(
+          'EmailJS 400 Error - Template variable mismatch.\n' +
+          'Your EmailJS template should use these variables:\n' +
+          '  {{from_name}}, {{from_email}}, {{phone}}, {{subject}}, {{message}}\n' +
+          'Go to emailjs.com -> Email Templates -> edit your template content.'
+        );
+      } else if (error?.status === 404) {
+        errorMsg = 'Email service not found. Please verify your Service ID and Template ID.';
+      } else if (error?.status === 403) {
+        errorMsg = 'Email service blocked. Check domain restrictions on your EmailJS dashboard.';
+      }
+      
+      showToast('error', errorMsg);
     } finally {
       setSending(false);
     }
@@ -138,7 +147,11 @@ function Contact() {
       {toast.show && (
         <div className={`toast-notification ${toast.type}`}>
           <span className="toast-icon">
-            {toast.type === 'success' ? '✓' : '✕'}
+            {toast.type === 'success' ? (
+              <i className='bx bx-check'></i>
+            ) : (
+              <i className='bx bx-error'></i>
+            )}
           </span>
           <span className="toast-message">{toast.message}</span>
           <button
@@ -146,94 +159,128 @@ function Contact() {
             onClick={() => setToast({ show: false, type: '', message: '' })}
             aria-label="Close notification"
           >
-            ×
+            &times;
           </button>
         </div>
       )}
 
-      <form onSubmit={handleSubmit} id="form">
-        <div className="input-box">
-          <div className={`input-field field ${errors.name ? 'error' : ''}`}>
-            <input 
-              type="text" 
-              placeholder="Full Name" 
-              id="name"
-              className="item" 
-              autoComplete="off"
-              value={formData.name}
-              onChange={handleChange}
-              disabled={sending}
-            />
-            {errors.name && <div className="error-txt">{errors.name}</div>}
-          </div>
-          <div className={`input-field field ${errors.email ? 'error' : ''}`}>
-            <input 
-              type="text" 
-              placeholder="Email Address" 
-              id="email" 
-              className="item" 
-              autoComplete="off"
-              value={formData.email}
-              onChange={handleChange}
-              disabled={sending}
-            />
-            {errors.email && <div className="error-txt email">{errors.email}</div>}
-          </div>
+      {/* Two-column layout: info cards LEFT, form RIGHT */}
+      <div className="contact-grid">
+
+        {/* Left column - Contact Info */}
+        <div className="contact-info-column">
+          <h3 className="contact-info-heading">Let's Build Something</h3>
+          <p className="contact-info-desc">
+            Currently open to remote contract &amp; freelance React Native work. Building a mobile product and need someone who can own it end-to-end? Let's talk.
+          </p>
+
+          <a href="mailto:shailendraparihar3630@gmail.com" className="contact-info-card">
+            <div className="contact-info-icon">
+              <i className='bx bx-envelope'></i>
+            </div>
+            <div className="contact-info-text">
+              <h4>Email Me</h4>
+              <p>shailendraparihar3630@gmail.com</p>
+            </div>
+          </a>
+
+          <a href="tel:+919993732470" className="contact-info-card">
+            <div className="contact-info-icon">
+              <i className='bx bx-phone'></i>
+            </div>
+            <div className="contact-info-text">
+              <h4>Call Me</h4>
+              <p>+91 9993732470</p>
+            </div>
+          </a>
         </div>
-        <div className="input-box">
-          <div className={`input-field field ${errors.phone ? 'error' : ''}`}>
-            <input 
-              type="text" 
-              placeholder="Phone Number" 
-              id="phone" 
+
+        {/* Right column - Form */}
+        <form onSubmit={handleSubmit} id="form">
+          <div className="input-box">
+            <div className={`input-field field ${errors.name ? 'error' : ''}`}>
+              <input 
+                type="text" 
+                placeholder="Full Name" 
+                id="name"
+                className="item" 
+                autoComplete="off"
+                value={formData.name}
+                onChange={handleChange}
+                disabled={sending}
+              />
+              {errors.name && <div className="error-txt">{errors.name}</div>}
+            </div>
+            <div className={`input-field field ${errors.email ? 'error' : ''}`}>
+              <input 
+                type="text" 
+                placeholder="Email Address" 
+                id="email" 
+                className="item" 
+                autoComplete="off"
+                value={formData.email}
+                onChange={handleChange}
+                disabled={sending}
+              />
+              {errors.email && <div className="error-txt email">{errors.email}</div>}
+            </div>
+          </div>
+          <div className="input-box">
+            <div className={`input-field field ${errors.phone ? 'error' : ''}`}>
+              <input 
+                type="text" 
+                placeholder="Phone Number" 
+                id="phone" 
+                className="item" 
+                autoComplete="off"
+                value={formData.phone}
+                onChange={handleChange}
+                disabled={sending}
+              />
+              {errors.phone && <div className="error-txt">{errors.phone}</div>}
+            </div>
+            <div className={`input-field field ${errors.subject ? 'error' : ''}`}>
+              <input 
+                type="text" 
+                placeholder="Subject" 
+                id="subject"
+                className="item" 
+                autoComplete="off"
+                value={formData.subject}
+                onChange={handleChange}
+                disabled={sending}
+              />
+              {errors.subject && <div className="error-txt">{errors.subject}</div>}
+            </div>
+          </div>
+          <div className={`textarea-field field ${errors.message ? 'error' : ''}`}>
+            <textarea 
+              id="message" 
+              cols="30" 
+              rows="10" 
+              placeholder="Your message" 
               className="item" 
               autoComplete="off"
-              value={formData.phone}
+              value={formData.message}
               onChange={handleChange}
               disabled={sending}
             />
-            {errors.phone && <div className="error-txt">{errors.phone}</div>}
+            {errors.message && <div className="error-txt">{errors.message}</div>}
           </div>
-          <div className={`input-field field ${errors.subject ? 'error' : ''}`}>
-            <input 
-              type="text" 
-              placeholder="Subject" 
-              id="subject"
-              className="item" 
-              autoComplete="off"
-              value={formData.subject}
-              onChange={handleChange}
-              disabled={sending}
-            />
-            {errors.subject && <div className="error-txt">{errors.subject}</div>}
-          </div>
-        </div>
-        <div className={`textarea-field field ${errors.message ? 'error' : ''}`}>
-          <textarea 
-            id="message" 
-            cols="30" 
-            rows="10" 
-            placeholder="your message" 
-            className="item" 
-            autoComplete="off"
-            value={formData.message}
-            onChange={handleChange}
-            disabled={sending}
-          />
-          {errors.message && <div className="error-txt">{errors.message}</div>}
-        </div>
-        
-        <button type="submit" disabled={sending} className={sending ? 'btn-sending' : ''}>
-          {sending ? (
-            <>
-              <span className="spinner"></span>
-              Sending...
-            </>
-          ) : (
-            'Send message'
-          )}
-        </button>
-      </form>
+          
+          <button type="submit" disabled={sending} className={sending ? 'btn-sending' : ''}>
+            {sending ? (
+              <>
+                <span className="spinner"></span>
+                Sending...
+              </>
+            ) : (
+              'Send message'
+            )}
+          </button>
+        </form>
+
+      </div>
     </section>
   )
 }

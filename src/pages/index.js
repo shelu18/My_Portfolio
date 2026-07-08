@@ -1,5 +1,4 @@
 export { default as HomePage } from './HomePage/HomePage'
 export { default as AboutPage } from './AboutPage/AboutPage'
-export { default as MajorProjectsPage } from './MajorProjectsPage/MajorProjectsPage'
-export { default as MinorProjectsPage } from './MinorProjectsPage/MinorProjectsPage'
+export { default as ProjectsPage } from './ProjectsPage/ProjectsPage'
 export { default as ProjectDetailsPage } from './ProjectDetailsPage/ProjectDetailsPage'

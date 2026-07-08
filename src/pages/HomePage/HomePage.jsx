@@ -1,9 +1,10 @@
 import { Header, Footer } from '@components'
 import { Hero, About, Experience, Education, Projects, Skills, Contact } from '@sections'
-import { useScrollSpy } from '@hooks'
+import { useScrollSpy, useScrollReveal } from '@hooks'
 
 function HomePage() {
   useScrollSpy()
+  useScrollReveal()
 
   return (
     <>
