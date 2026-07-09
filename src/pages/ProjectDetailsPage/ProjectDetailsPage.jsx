@@ -1,104 +1,110 @@
-import { useState, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import { projectDetails } from '@data/projects'
+import { BackButton } from '@components'
 import '@styles/project-details.css'
 
 function ProjectDetailsPage() {
   const { projectId } = useParams()
-  const [currentSlide, setCurrentSlide] = useState(0)
-
   const project = projectDetails[projectId] || projectDetails.magicalswap
 
-  const plusSlides = (n) => {
-    let newSlide = currentSlide + n
-    if (newSlide >= project.images.length) newSlide = 0
-    if (newSlide < 0) newSlide = project.images.length - 1
-    setCurrentSlide(newSlide)
-  }
-
   useEffect(() => {
-    setCurrentSlide(0)
+    window.scrollTo(0, 0)
   }, [projectId])
 
   return (
-    <>
-      <Link to="/projects" className="back-to-projects-btn">
-        <i className="bx bx-arrow-back"></i> Back to Projects
-      </Link>
+    <div className="pd-page">
+      <BackButton label="Back to Projects" scrollTo="projects" />
 
-      <div className="project-detail-container">
-        <h1>{project.title}</h1>
+      <div className="pd-container">
+        {/* Hero */}
+        <header className="pd-hero">
+          <h1 className="pd-title">{project.title}</h1>
 
-        <section className="project-overview">
-          <h2>Overview</h2>
-          <p>{project.overview}</p>
-        </section>
-
-        {project.problem && (
-          <section className="project-overview">
-            <h2>The Problem</h2>
-            <p>{project.problem}</p>
-          </section>
-        )}
-
-        {project.role && (
-          <section className="project-overview">
-            <h2>My Role</h2>
-            <p>{project.role}</p>
-          </section>
-        )}
-
-        {project.outcome && (
-          <section className="project-overview">
-            <h2>Outcome</h2>
-            <p>{project.outcome}</p>
-          </section>
-        )}
-
-        <section className="project-image-carousel">
-          <h2>Project Screenshots</h2>
-          <div className="carousel-container">
-            {project.images.map((image, index) => (
-              <div
-                key={index}
-                className="carousel-slide"
-                style={{ display: index === currentSlide ? 'block' : 'none' }}
-              >
-                <img src={image} alt={`${project.title} Screenshot ${index + 1}`} />
-              </div>
+          {/* Tech tags */}
+          <div className="pd-tags">
+            {project.technologies.map((tech) => (
+              <span className="pd-tag" key={tech}>{tech}</span>
             ))}
-            {project.images.length > 1 && (
-              <>
-                <button className="prev" onClick={() => plusSlides(-1)}>&#10094;</button>
-                <button className="next" onClick={() => plusSlides(1)}>&#10095;</button>
-              </>
-            )}
           </div>
-        </section>
+        </header>
 
-        <section className="project-features">
-          <h2>Key Features</h2>
-          <ul>
-            {project.features.map((feature, index) => (
-              <li key={index}>{feature}</li>
-            ))}
-          </ul>
-        </section>
+        {/* Cover image */}
+        {project.images?.[0] && (
+          <div className="pd-cover">
+            <img src={project.images[0]} alt={project.title} />
+          </div>
+        )}
 
-        <section className="project-technologies">
-          <h2>Technologies Used</h2>
-          <ul>
-            {project.technologies.map((tech, index) => (
-              <li key={index}>{tech}</li>
-            ))}
-          </ul>
-        </section>
+        {/* Content grid — all info in one flowing layout */}
+        <div className="pd-content">
+          {/* Overview */}
+          <div className="pd-block">
+            <h2 className="pd-block__heading">Overview</h2>
+            <p className="pd-block__text">{project.overview}</p>
+          </div>
+
+          {/* Problem + Role side by side on desktop */}
+          {(project.problem || project.role) && (
+            <div className="pd-two-col">
+              {project.problem && (
+                <div className="pd-block">
+                  <h2 className="pd-block__heading">The Problem</h2>
+                  <p className="pd-block__text">{project.problem}</p>
+                </div>
+              )}
+              {project.role && (
+                <div className="pd-block">
+                  <h2 className="pd-block__heading">My Role</h2>
+                  <p className="pd-block__text">{project.role}</p>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Outcome */}
+          {project.outcome && (
+            <div className="pd-block pd-block--highlight">
+              <h2 className="pd-block__heading">Outcome</h2>
+              <p className="pd-block__text">{project.outcome}</p>
+            </div>
+          )}
+
+          {/* Key Features */}
+          <div className="pd-block">
+            <h2 className="pd-block__heading">Key Features</h2>
+            <ul className="pd-features">
+              {project.features.map((feature, i) => (
+                <li key={i}>
+                  <i className="bx bx-check-circle" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Additional screenshots */}
+          {project.images?.length > 1 && (
+            <div className="pd-block">
+              <h2 className="pd-block__heading">Screenshots</h2>
+              <div className="pd-gallery">
+                {project.images.slice(1).map((img, i) => (
+                  <div className="pd-gallery__item" key={i}>
+                    <img src={img} alt={`${project.title} screenshot ${i + 2}`} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Footer CTA */}
+        <div className="pd-footer-cta">
+          <p>Interested in working together?</p>
+          <a href="/#contact" className="btn btn-primary">Get In Touch</a>
+        </div>
       </div>
-
-      <footer className="footer">
-        <p>&copy; 2024 Shailendra. All rights reserved.</p>
-      </footer>
-    </>
+    </div>
   )
 }
 

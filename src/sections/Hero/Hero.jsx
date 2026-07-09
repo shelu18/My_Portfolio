@@ -27,16 +27,16 @@ function Hero() {
           <div className="hero-info-group">
             <span className="hero-info-label">FIND ME ON</span>
             <div className="hero-social">
-              <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" data-social="linkedin">
                 <i className='bx bxl-linkedin'></i>
               </a>
-              <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" data-social="github">
                 <i className='bx bxl-github'></i>
               </a>
-              <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter" data-social="twitter">
                 <i className='bx bxl-twitter'></i>
               </a>
-              <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-social="instagram">
                 <i className='bx bxl-instagram'></i>
               </a>
             </div>

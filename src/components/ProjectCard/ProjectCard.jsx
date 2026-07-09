@@ -1,5 +1,5 @@
 import { useRef, useCallback } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 /**
  * ProjectCard — A premium social-media-preview style project card.
@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom'
 function ProjectCard({ project, index = 0 }) {
   const cardRef = useRef(null)
   const glowRef = useRef(null)
+  const navigate = useNavigate()
 
   /* ── 3D tilt on mouse move ── */
   const handleMouseMove = useCallback((e) => {
@@ -51,9 +52,10 @@ function ProjectCard({ project, index = 0 }) {
     <article
       ref={cardRef}
       className="pcard"
-      style={{ transitionDelay: `${index * 0.1}s` }}
+      style={{ transitionDelay: `${index * 0.1}s`, cursor: 'pointer' }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onClick={() => navigate(project.detailsLink)}
       id={`project-card-${project.id}`}
     >
       {/* Cursor-following glow overlay */}
@@ -100,6 +102,40 @@ function ProjectCard({ project, index = 0 }) {
 
         {/* Description */}
         <p className="pcard__desc">{project.description}</p>
+
+        {/* Action buttons */}
+        <div className="pcard__actions">
+          {project.liveLink ? (
+            <a
+              href={project.liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pcard__action-btn pcard__action-btn--live"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <i className="bx bx-link-external" /> Live
+            </a>
+          ) : (
+            <span className="pcard__action-btn pcard__action-btn--disabled">
+              <i className="bx bx-link-external" /> Live
+            </span>
+          )}
+          {project.codeLink ? (
+            <a
+              href={project.codeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pcard__action-btn pcard__action-btn--code"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <i className="bx bxl-github" /> Code
+            </a>
+          ) : (
+            <span className="pcard__action-btn pcard__action-btn--disabled">
+              <i className="bx bx-lock-alt" /> Private
+            </span>
+          )}
+        </div>
 
         {/* CTA */}
         <Link to={project.detailsLink} className="pcard__cta">
