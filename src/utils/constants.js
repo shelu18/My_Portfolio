@@ -7,7 +7,7 @@ export const BASE_URL = import.meta.env.BASE_URL || '/'
 export const SOCIAL_LINKS = {
   twitter: 'https://x.com/Shelu_parihar_',
   linkedin: 'https://www.linkedin.com/in/shailendra-parihar-3122b4220/',
-  instagram: 'https://www.instagram.com/shailendra_parihar07/',
+  instagram: 'https://www.instagram.com/sheluparihar_/',
   github: 'https://github.com/shelu18',
 }
 
