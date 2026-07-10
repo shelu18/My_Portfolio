@@ -9,7 +9,6 @@ function Header() {
       <a href="#" className="logo">
         {PERSONAL_INFO.name.split(' ')[0]}<span>.</span>
       </a>
-      <div className="bx bx-menu" id="menu-icon"></div>
       <nav className="navbar">
         <a href="#home" className="active">Home</a>
         <a href="#about">About</a>
@@ -28,6 +27,7 @@ function Header() {
         >
           <i className={`bx ${theme === 'dark' ? 'bx-sun' : 'bx-moon'}`} />
         </button>
+        <div className="bx bx-menu" id="menu-icon"></div>
         <a href={PERSONAL_INFO.whatsappLink} className="header-cta" target="_blank" rel="noopener noreferrer">
           Hire Me
         </a>
