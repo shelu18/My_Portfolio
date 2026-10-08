@@ -58,7 +58,7 @@ function Hero() {
         <div className="portrait-glow"></div>
         <div className="portrait-wrapper">
           <img
-            src={`${BASE_URL}images/sheluji.jpeg`}
+            src={`${BASE_URL}images/shailendra.png`}
             alt={PERSONAL_INFO.name}
             className="portrait-img"
           />

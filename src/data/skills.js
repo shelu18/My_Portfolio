@@ -78,15 +78,7 @@ export const skillCategories = [
       { name: 'Sentry', icon: 'bx-shield' },
     ],
   },
-  {
-    title: 'Device & Native',
-    icon: 'bx-devices',
-    skills: [
-      { name: 'Native Modules', icon: 'bx-chip' },
-      { name: 'Expo Notifications', icon: 'bx-notification' },
-      { name: 'Google Maps SDK', icon: 'bx-map-alt' },
-    ],
-  },
+  
   {
     title: 'Release & Deployment',
     icon: 'bx-rocket',

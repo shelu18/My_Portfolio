@@ -10,7 +10,7 @@ function Experience() {
               <div className="content">
                 <div className="year"><i className='bx bxs-calendar'></i>Dec 2025 – Present</div>
                 <h3>React Native Developer — Yuvasoft Solutions Pvt Ltd</h3>
-                <p>Working on MagicalSwap, a rental solution app with 5,000+ active Play Store users. Upgraded the app to React Native's New Architecture (Fabric, TurboModules) with zero downtime. Implemented Branch.io deep linking, geolocation-based listing discovery, and Sentry crash monitoring across Android/iOS.</p>
+                <p>Engineering on MagicalSwap (rental solution app with 5,000+ active users). Implemented Branch.io deep linking for smart app links and marketing attribution. Managed version rollouts across Google Play Console and App Store Connect, drove React Native and Android build upgrades, and maintained production stability through comprehensive regression testing across core property and tenant flows.</p>
               </div>
             </div>
 

@@ -1,5 +1,5 @@
 import { Header, Footer } from '@components'
-import { Hero, About, Experience, Education, Projects, Skills, Services, Contact } from '@sections'
+import { Hero, About, Projects, Experience, Education, Skills, Services, Contact } from '@sections'
 import { useScrollSpy, useScrollReveal } from '@hooks'
 
 function HomePage() {
@@ -11,10 +11,10 @@ function HomePage() {
       <Header />
       <Hero />
       <About />
-      <Experience />
-      <Education />
       <Projects />
       <Skills />
+      <Experience />
+      <Education />
       <Services />
       <Contact />
       <Footer />

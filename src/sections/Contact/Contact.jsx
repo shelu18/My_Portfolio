@@ -91,10 +91,13 @@ function Contact() {
 
     try {
       const templateParams = {
+        name: formData.name,
         from_name: formData.name,
+        email: formData.email,
         from_email: formData.email,
         phone: formData.phone,
         subject: formData.subject,
+        title: formData.subject,
         message: formData.message,
       };
 

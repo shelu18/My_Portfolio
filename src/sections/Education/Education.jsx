@@ -4,33 +4,37 @@ function Education() {
   return (
     <>
       <section className="education" id="education">
-        <h2 className="heading reveal">My <span>Journey</span></h2>
-        <div className="education-row">
-          <div className="education-column">
-            <h3 className="title">Education</h3>
-            <div className="education-box">
-              <div className="education-content">
-                <div className="content">
-                  <div className="year"><i className='bx bxs-calendar'></i>2021-2025</div>
-                  <h3>BTech — Acropolis Institute Of Technology And Research</h3>
-                  <p>Bachelor of Technology (B.Tech) in Computer Science Engineering.</p>
-                </div>
+        <h2 className="heading reveal">My <span>Education</span></h2>
+        <div className="education-single-wrap reveal">
+          <div className="edu-card">
+            <div className="edu-card__header">
+              <div className="edu-card__icon-wrap">
+                <i className='bx bxs-graduation'></i>
               </div>
-
-              <div className="education-content">
-                <div className="content">
-                  <div className="year"><i className='bx bxs-calendar'></i>2020-2021</div>
-                  <h3>Class 12th — Navodit Balniketan Higher Secondary School</h3>
-                  <p>Completed 12th grade with <strong>80%</strong> overall result.</p>
-                </div>
+              <div className="edu-card__meta">
+                <span className="edu-card__badge">
+                  <i className='bx bx-calendar'></i> 2021 – 2025
+                </span>
+                <span className="edu-card__degree-type">Bachelor's Degree</span>
               </div>
+            </div>
 
-              <div className="education-content">
-                <div className="content">
-                  <div className="year"><i className='bx bxs-calendar'></i>2018-2019</div>
-                  <h3>Class 10th — South Valley International School</h3>
-                  <p>Completed 10th class with <strong>85.2%</strong> overall result.</p>
-                </div>
+            <div className="edu-card__body">
+              <h3 className="edu-card__degree">Bachelor of Technology (B.Tech)</h3>
+              <h4 className="edu-card__institute">
+                Acropolis Institute Of Technology And Research
+              </h4>
+              <p className="edu-card__desc">
+                Computer Science & Engineering. Focused on software engineering, data structures & algorithms, and mobile/web technologies.
+              </p>
+            </div>
+
+            <div className="edu-card__footer">
+              <div className="edu-card__tag">
+                <i className='bx bx-code-alt'></i> Computer Science
+              </div>
+              <div className="edu-card__tag">
+                <i className='bx bx-map-pin'></i> Indore, India
               </div>
             </div>
           </div>
