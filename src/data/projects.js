@@ -11,19 +11,6 @@ const BASE_URL = import.meta.env.BASE_URL || '/'
  */
 export const allProjects = [
   {
-    id: 'oneradon',
-    title: 'OneRADON Mobile — IoT BLE Companion App',
-    description:
-      'Cross-platform React Native 0.84 (New Architecture) IoT app that communicates with 4 radon monitor hardware models over BLE using a custom binary protocol — a full Qt/C++ desktop-to-mobile migration.',
-    tags: ['React Native 0.84', 'New Architecture', 'BLE', 'TypeScript', 'Redux Toolkit', 'MMKV', 'Firebase Crashlytics'],
-    coverImage: `${BASE_URL}images/covers/oneradon-cover.webp`,
-    githubLink: '',
-    liveLink: '',
-    codeLink: '',
-    detailsLink: '/project-details/oneradon',
-    featured: true,
-  },
-  {
     id: 'magicalswap',
     title: 'MagicalSwap — Rental Solution App',
     description:
@@ -34,6 +21,19 @@ export const allProjects = [
     liveLink: 'https://play.google.com/store/apps/details?id=com.magicalswap.rent.android',
     codeLink: '',
     detailsLink: '/project-details/magicalswap',
+    featured: true,
+  },
+  {
+    id: 'oneradon',
+    title: 'OneRADON Mobile — IoT BLE Companion App',
+    description:
+      'Cross-platform React Native 0.84 (New Architecture) IoT app that communicates with 4 radon monitor hardware models over BLE using a custom binary protocol — a full Qt/C++ desktop-to-mobile migration.',
+    tags: ['React Native 0.84', 'New Architecture', 'BLE', 'TypeScript', 'Redux Toolkit', 'MMKV', 'Firebase Crashlytics'],
+    coverImage: `${BASE_URL}images/covers/oneradon-cover.webp`,
+    githubLink: '',
+    liveLink: 'https://play.google.com/store/apps/details?id=org.sunnuclear.oneradon&hl=en_IN&pli=1',
+    codeLink: '',
+    detailsLink: '/project-details/oneradon',
     featured: true,
   },
   {
