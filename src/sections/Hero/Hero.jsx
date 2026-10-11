@@ -47,7 +47,7 @@ function Hero() {
           <a href={PERSONAL_INFO.whatsappLink} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
             Let's Talk
           </a>
-          <a href={PERSONAL_INFO.resumePath} download="react-native-resume.pdf" className="btn btn-outline">
+          <a href={PERSONAL_INFO.resumePath} download="react-native-sp.pdf" className="btn btn-outline">
             Download CV
           </a>
         </div>
