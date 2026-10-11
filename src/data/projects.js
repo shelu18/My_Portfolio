@@ -11,6 +11,19 @@ const BASE_URL = import.meta.env.BASE_URL || '/'
  */
 export const allProjects = [
   {
+    id: 'oneradon',
+    title: 'OneRADON Mobile — IoT BLE Companion App',
+    description:
+      'Cross-platform React Native 0.84 (New Architecture) IoT app that communicates with 4 radon monitor hardware models over BLE using a custom binary protocol — a full Qt/C++ desktop-to-mobile migration.',
+    tags: ['React Native 0.84', 'New Architecture', 'BLE', 'TypeScript', 'Redux Toolkit', 'MMKV', 'Firebase Crashlytics'],
+    coverImage: `${BASE_URL}images/covers/oneradon-cover.webp`,
+    githubLink: '',
+    liveLink: '',
+    codeLink: '',
+    detailsLink: '/project-details/oneradon',
+    featured: true,
+  },
+  {
     id: 'magicalswap',
     title: 'MagicalSwap — Rental Solution App',
     description:
@@ -34,7 +47,7 @@ export const allProjects = [
     liveLink: '',
     codeLink: '',
     detailsLink: '/project-details/drinking-buddy',
-    featured: true,
+    featured: false,
   },
   {
     id: 'crm-autodialer',
@@ -47,7 +60,7 @@ export const allProjects = [
     liveLink: '',
     codeLink: '',
     detailsLink: '/project-details/crm-autodialer',
-    featured: true,
+    featured: false,
   },
 ]
 
@@ -56,6 +69,48 @@ export const getFeaturedProjects = () =>
   allProjects.filter((p) => p.featured).slice(0, 3)
 
 export const projectDetails = {
+  oneradon: {
+    title: 'OneRADON Mobile — IoT BLE Companion App',
+    overview: `OneRADON Mobile is a cross-platform React Native 0.84 companion app for professional radon measurement devices. Built with the New Architecture (TurboModules + Fabric) and Hermes engine, it communicates with 4 hardware models over BLE using a fully custom binary protocol — a ground-up migration of a legacy Qt/C++ desktop application.`,
+    problem:
+      'A legacy Qt/C++ desktop application was the only way to interface with OneRADON hardware devices, blocking field inspectors from a mobile workflow. The entire device communication protocol, binary data parsers, AES-128 encryption, and report generation pipeline needed to be reverse-engineered and rebuilt in React Native without any protocol documentation.',
+    role: `Migrated the legacy Qt/C++ desktop application to React Native 0.84 (New Architecture), porting device communication, business logic, binary data parsing and AES-128 encryption to achieve byte-level parity across 4 hardware models and ~100 BLE device commands. Engineered a full custom BLE communication stack including binary packet building using the SNC05 protocol (preamble, checksum, command, payload), command queuing to prevent race conditions, retry logic with backoff, notification stream reassembly from fragmented chunks, and a keep-alive controller. Built an offline-capable test-data pipeline that downloads up to 999 measurement records per test slot via BLE, parses binary sensor data (temperature, humidity, pressure, VOC, CO2), computes EPA Protocol and test averages, and persists raw and processed data using Redux Toolkit and MMKV. Developed an inspection reporting module with 28 Redux actions managing photo capture, checklists, reusable templates, regulatory AARST/NRPP compliance data, ZIP export, backend PDF report generation, cloud upload, and native share on Android and iOS.`,
+    outcome:
+      'A production-grade cross-platform iOS and Android app replacing the Qt desktop tool entirely, enabling field inspectors to conduct BLE-connected radon inspections, process multi-sensor measurement data, and generate regulatory-compliant PDF inspection reports — all from their mobile device.',
+    features: [
+      'Full Qt/C++ desktop-to-mobile migration — BLE protocol, binary parsers, and AES-128-ECB encryption ported to byte-level parity',
+      'Custom SNC05 binary BLE protocol: packet building with preamble, checksum, command, control byte, and payload encoding',
+      'Auto-detection and support for 4 radon monitor hardware models (R1027, R1028, R1030, R1031) from hardware UnitId',
+      'BLE command queue, retry with backoff, and notification stream reassembly for reliable device communication',
+      'BLE keep-alive controller (5s pings) to prevent unexpected disconnection during data transfer',
+      'Downloads up to 999 test records per device via BLE with per-record progress tracking',
+      'Multi-sensor binary parsing: temperature, humidity, pressure, VOC, CO2 with model-specific byte layouts',
+      'EPA Protocol Average computation and chart-ready data structures from raw measurement records',
+      'Inspection report module with photo management, checklists, AARST/NRPP regulatory compliance data, and reusable templates',
+      'ZIP export pipeline, backend PDF report generation (90s timeout), cloud upload, and native share on Android/iOS',
+      'AES-128-ECB token-based device authentication with SHA-256 key derivation',
+      'Multi-environment API infrastructure (PROD / UAT / QA) with runtime switching',
+      'Redux Toolkit (8 slices) + MMKV high-performance storage with typed accessors and state hydration',
+      'Firebase Crashlytics, custom in-app logging system (10,000 entries, MMKV-persisted, shareable)',
+      'React Native 0.84 New Architecture (TurboModules + Fabric), Hermes JS engine, Nitro Modules',
+    ],
+    images: [`${BASE_URL}images/covers/oneradon-cover.webp`],
+    technologies: [
+      'React Native 0.84',
+      'New Architecture (TurboModules + Fabric)',
+      'TypeScript',
+      'BLE (react-native-ble-plx)',
+      'Redux Toolkit',
+      'MMKV',
+      'AES-128 Encryption',
+      'Firebase Crashlytics',
+      'Axios',
+      'Hermes',
+      'Nitro Modules',
+      'Android',
+      'iOS',
+    ],
+  },
   magicalswap: {
     title: 'MagicalSwap — Rental Solution App',
     overview: `MagicalSwap connects tenants and property owners with verified rental listings in Indore, with local area-manager support. The app serves 5,000+ active users on the Play Store and App Store.`,
