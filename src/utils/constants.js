@@ -18,7 +18,7 @@ export const PERSONAL_INFO = {
   email: 'officialshailendraparihar18@gmail.com',
   phone: '+919993732470',
   whatsappLink: 'https://wa.me/+919993732470?text=Hello Shailendra! >',
-  resumePath: `${BASE_URL}cv/react-native-sp1.pdf`,
+  resumePath: `${BASE_URL}cv/react-native-sp.pdf`,
 }
 
 export const ABOUT_TEXT = `I build production React Native apps for iOS and Android — from first commit to store approval. Over the last 2 years I've shipped features used by thousands of real people: real-time chat, live location discovery, deep linking, push notifications, and secure OAuth flows.
